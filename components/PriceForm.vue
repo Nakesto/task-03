@@ -20,6 +20,7 @@
               v-model="product_special_price_from"
               class="mb-2 mt-2"
               :min="new Date()"
+              :max="maxDates"
             ></b-form-datepicker>
             <small
               style="font-size: 10px"
@@ -127,7 +128,14 @@ const minDates = computed(() => {
   }
   return new Date();
 });
-const isLoading = computed(() => $store.getters["regis/getIsLoading"]);
+const maxDates = computed(() => {
+  if (product_special_price_to.value !== "") {
+    const currentDate = new Date(product_special_price_to.value);
+    currentDate.setDate(currentDate.getDate() - 1);
+    return currentDate;
+  }
+  return null;
+});
 const price = computed({
   get() {
     return $store.state.products.inputPrice.price;
