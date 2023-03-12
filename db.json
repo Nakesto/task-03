@@ -1,0 +1,380 @@
+{
+  "users": [
+    {
+      "email": "rommy@gmail.com",
+      "password": "$2a$10$EFlpghdh6BMHbU8kp4giierGFBHyIr5Cs7gGoiZOUKaE/9iaGqcgG",
+      "firstName": "rommy",
+      "lastName": "jaya",
+      "phone": "081288218821",
+      "id": 11
+    },
+    {
+      "email": "vin@gmail.com",
+      "password": "$2a$10$3UHusb.8jPGNvNPCIHox4uFWe3X3Db0c/Oc1VXM8tVJYY23ZkHSHq",
+      "firstName": "vincent",
+      "lastName": "huang",
+      "phone": "0812837832739",
+      "id": 12
+    },
+    {
+      "email": "toni@gmail.com",
+      "password": "$2a$10$5bLF.F9ht8EUHGDAfalXAug9PySC3Q2R.fxCAQ07OfIFHNGozN9Jm",
+      "firstName": "toni",
+      "lastName": "tani",
+      "phone": "08128218281",
+      "id": 13
+    },
+    {
+      "email": "soni@gmail.com",
+      "password": "$2a$10$44njROJyRJ69gvaYz/OoJu9RbclJrPjyNsSRQmHg3QScS2.R0LcSi",
+      "firstName": "Soni",
+      "lastName": "Wakwaw",
+      "phone": "08128821889",
+      "id": 14
+    },
+    {
+      "email": "budi@gmail.com",
+      "password": "$2a$10$5u6IFDa881nrGDDJoANxrODZVH2SwUvukLZaof9CFojFDHUVBOm/S",
+      "firstName": "Budi",
+      "lastName": "Gunawan",
+      "phone": "0812828818218",
+      "id": 15
+    },
+    {
+      "email": "susi@gmail.com",
+      "password": "$2a$10$Bm6ScqsTcAjF2Usue425ceoLBsoCTaQ6KapQGUMCVg4YHKYaHCXU2",
+      "firstName": "susi",
+      "lastName": "susanti",
+      "phone": "0812821821218",
+      "id": 16
+    },
+    {
+      "email": "nani@gmail.com",
+      "password": "$2a$10$Ytraz3vlP4g5g9KCk5.uDu/KKZ98SaY0Guq4Ya4Is7TEYJJoVz3nK",
+      "firstName": "nani",
+      "lastName": "nano",
+      "phone": "081282818218",
+      "id": 17
+    },
+    {
+      "email": "rani@gmail.com",
+      "password": "$2a$10$jtisvA/IolcSnmsKAXdH9OmGscXTH2sFnqzhZ97xqeDsP5rVKxxq.",
+      "firstName": "Rani",
+      "lastName": "Rusli",
+      "phone": "08128218281281",
+      "id": 18
+    },
+    {
+      "email": "raden@gmail.com",
+      "password": "$2a$10$aoX.kE80XwxYojPjAEpXaeHL/htQ11LdFhyCT5Xc8lIn70oG5nso.",
+      "firstName": "raden",
+      "lastName": "ajeng",
+      "phone": "081288218218",
+      "id": 19
+    },
+    {
+      "email": "sjiajs@gmail.com",
+      "password": "$2a$10$n6trD8.zgZXh65N6b37T3OnVRBcDvxuS5FvRivZDCnyPB8spXmqy6",
+      "firstName": "jwijisiq",
+      "lastName": "sjijisaji",
+      "phone": "0292919219",
+      "id": 20
+    },
+    {
+      "email": "sadds@gmail.com",
+      "password": "$2a$10$bCIK5e09KtzBJ5WDuIqanuPLFVAi5c8m69..15qqJUFtZ6k/hRZhy",
+      "firstName": "kskkaksak",
+      "lastName": "adkqpmks",
+      "phone": "012882188218",
+      "id": 21
+    }
+  ],
+  "products": [
+    {
+      "id": 56283,
+      "product_id": 56283,
+      "product_sku": "A06790303619",
+      "product_name": "FIESTA Ready Meal Chicken Mushroom Noodle 300 g",
+      "product_desc": "FIESTA Ready Meal Chicken Mushroom Noodle 300 g adalah inovasi dari sajian makanan instan siap saji terbaru yang dipersembahkan oleh FIESTA. FIESTA Ready Meal kini telah meluncurkan lini produk terbarunya, yakni dengan menghadirkan ready meal dengan varian mie dengan daging ayam dan jamur. Dibuat dengan resep asli untuk dapat menyajikan sajian mie dengan dilengkapi daging ayam serta jamur. Kini telah tersedia dalam kemasan 300 gram yang sangat praktis dan mudah penyajiannya, karena sudah tersedia di dalam mangkuk dan hanya tinggal dipanaskan dengan microwave. Hadirkan kenikmatan FIESTA Ready Meal Chicken Mushroom Noodle 300 g, sehingga ga perlu lagi pusing pas lapar.",
+      "status": 0,
+      "is_alfa_product": 1,
+      "price": 25000,
+      "product_special_price": 23500,
+      "product_special_price_to": "2023-04-09",
+      "product_special_price_from": "2023-04-15",
+      "product_alfagift_price": 24000,
+      "product_images": {
+        "type": "Base Image",
+        "url": [
+          "https://cs1.alfacart.com/product/1/1_A7650250002165_20210302082330098_base.jpg"
+        ]
+      },
+      "alfagift_platform": true,
+      "product_pickup_availability": 1,
+      "product_is_groceries": 1,
+      "product_visibility_pdp": 296,
+      "product_category": "Makanan",
+      "product_sub_category": null
+    },
+    {
+      "id": 56284,
+      "product_id": 56284,
+      "product_sku": "A06790303620",
+      "product_name": "FIESTA Ready Meal Rice with Chicken Katsu Donburi 320 g",
+      "product_desc": "FIESTA Ready Meal Rice with Chicken Katsu Donburi 320 g adalah inovasi dari sajian makanan instan siap saji terbaru yang dipersembahkan oleh FIESTA. FIESTA Ready Meal kini telah meluncurkan lini produk terbarunya, yakni dengan menghadirkan ready meal dengan varian nasi dengan chicken katsu donburi. Dibuat dengan resep asli dari Jepang untuk dapat menyajikan ayam katsu dengan dilengkapi saus tonkatsu nikmat yang juga disajikan dengan nasi. Kini telah tersedia dalam kemasan 320 gram yang sangat praktis dan mudah penyajiannya, karena sudah tersedia mangkuk dan hanya tinggal dipanaskan dengan microwave. Bersama FIESTA Ready Meal Rice with Chicken Katsu Donburi 320 g, ga perlu lagi pusing pas lapar.",
+      "status": 1,
+      "is_alfa_product": 1,
+      "price": 25000,
+      "product_special_price": 23500,
+      "product_special_price_to": "2023-04-09",
+      "product_special_price_from": "2023-04-15",
+      "product_alfagift_price": 24000,
+      "product_images": {
+        "type": "Base Image",
+        "url": [
+          "https://cs1.alfacart.com/product/1/1_A7650230002165_20210302080542303_base.jpg"
+        ]
+      },
+      "alfagift_platform": true,
+      "product_pickup_availability": 1,
+      "product_is_groceries": 1,
+      "product_visibility_pdp": 296,
+      "product_category": "Makanan",
+      "product_sub_category": null
+    },
+    {
+      "id": 56285,
+      "product_id": 56285,
+      "product_sku": "A06790303621",
+      "product_name": "FIESTA Ready Meal Rice with Beef Yakiniku 320 g",
+      "product_desc": "FIESTA Ready Meal Rice with Beef Yakiniku 320 g adalah inovasi dari sajian makanan instan siap saji terbaru yang dipersembahkan oleh FIESTA. FIESTA Ready Meal kini telah meluncurkan lini produk terbarunya, yakni dengan menghadirkan ready meal dengan varian nasi dengan daging sapi yang dimasak dengan bumbu khas yakiniku. Dibuat dengan resep asli Jepang untuk dapat menyajikan sajian daging sapi yang dimasak dengan bumbu yakiniku dan juga disajikan dengan nasi. Kini telah tersedia dalam kemasan 320 gram yang sangat praktis dan mudah penyajiannya, karena sudah tersedia mangkuk dan hanya tinggal dipanaskan dengan microwave. Bersama FIESTA Ready Meal Rice with Beef Yakiniku 320 g, ga perlu lagi pusing pas lapar.",
+      "status": 0,
+      "is_alfa_product": 1,
+      "price": 25000,
+      "product_special_price": 23500,
+      "product_special_price_to": "2023-04-09",
+      "product_special_price_from": "2023-04-15",
+      "product_alfagift_price": 24000,
+      "product_images": {
+        "type": "Base Image",
+        "url": [
+          "https://cs1.alfacart.com/product/1/1_A7650210002165_20210301233057268_base.jpg"
+        ]
+      },
+      "alfagift_platform": true,
+      "product_pickup_availability": 1,
+      "product_is_groceries": 1,
+      "product_visibility_pdp": 296,
+      "product_category": "Makanan",
+      "product_sub_category": null
+    },
+    {
+      "id": 56286,
+      "product_id": 56286,
+      "product_sku": "A06790303622",
+      "product_name": "FIESTA Ready Meal Chicken Barbeque Noodle 300 g",
+      "product_desc": "FIESTA Ready Meal Chicken Barbeque Noodle 300 g adalah inovasi dari sajian makanan instan siap saji terbaru yang dipersembahkan oleh FIESTA. FIESTA Ready Meal kini telah meluncurkan lini produk terbarunya, yakni dengan menghadirkan ready meal dengan varian mie dengan daging ayam yang dimasak dalam bumbu barbekiu. Dibuat dengan resep asli untuk dapat menyajikan sajian mie dengan daging ayam dan saus barbeque. Kini telah tersedia dalam kemasan 300 gram yang sangat praktis dan mudah penyajiannya, karena sudah tersedia di dalam mangkuk dan hanya tinggal dipanaskan dengan microwave. Hadirkan kenikmatan FIESTA Ready Meal Chicken Barbeque Noodle 300 g, sehingga ga perlu lagi pusing pas lapar.",
+      "status": 1,
+      "is_alfa_product": 1,
+      "price": 25000,
+      "product_special_price": 23500,
+      "product_special_price_to": "2023-04-09",
+      "product_special_price_from": "2023-04-15",
+      "product_alfagift_price": 24000,
+      "product_images": {
+        "type": "Base Image",
+        "url": [
+          "https://cs1.alfacart.com/product/1/1_A7650260002165_20210302083426395_base.jpg"
+        ]
+      },
+      "alfagift_platform": true,
+      "product_pickup_availability": 1,
+      "product_is_groceries": 1,
+      "product_visibility_pdp": 296,
+      "product_category": "Makanan",
+      "product_sub_category": null
+    },
+    {
+      "id": 56287,
+      "product_id": 56287,
+      "product_sku": "A06790303623",
+      "product_name": "FIESTA Ready Meal Rice with Karage and Sweet Sour Sauce 320 g",
+      "product_desc": "FIESTA Ready Meal Rice with Karage and Sweet Sour Sauce 320 g adalah makanan instan siap saji yang hadir dengan varian nasi dengan chicken karage dan saus asam manis. Hadir dengan potongan ayam karage berkualitas dengan saus asam manis dan disajikan lengkap dengan nasi dan sayuran. Sangat praktis dan mudah penyajiannya, karena sudah tersedia mangkuk dan hanya tinggal dipanaskan dengan microwave. Tersedia dalam kemasan 320 g.",
+      "status": 0,
+      "is_alfa_product": 1,
+      "price": 25000,
+      "product_special_price": 23500,
+      "product_special_price_to": "2023-04-09",
+      "product_special_price_from": "2023-04-15",
+      "product_alfagift_price": 24000,
+      "product_images": {
+        "type": "Base Image",
+        "url": [
+          "https://cs1.alfacart.com/product/1/1_A7650220002165_20220104144406537_base.jpg"
+        ]
+      },
+      "alfagift_platform": true,
+      "product_pickup_availability": 1,
+      "product_is_groceries": 1,
+      "product_visibility_pdp": 296,
+      "product_category": "Makanan",
+      "product_sub_category": null
+    },
+    {
+      "id": 56288,
+      "product_id": 56288,
+      "product_sku": "A06790303624",
+      "product_name": "FIESTA Ready Meal Rice with Beef Black Pepper 320 g",
+      "product_desc": "FIESTA Ready Meal Rice with Beef Black Pepper 320 g adalah inovasi dari sajian makanan instan siap saji terbaru yang dipersembahkan oleh FIESTA. FIESTA Ready Meal kini telah meluncurkan lini produk terbarunya, yakni dengan menghadirkan ready meal dengan varian nasi dengan daging sapi yang dimasak dengan bumbu lada hitam. Dibuat dengan resep asli untuk dapat menyajikan sajian daging sapi dengan dilumuri saus lada hitam segar yang juga disajikan dengan nasi. Kini telah tersedia dalam kemasan 320 gram yang sangat praktis dan mudah penyajiannya, karena sudah tersedia mangkuk dan hanya tinggal dipanaskan dengan microwave. Bersama FIESTA Ready Meal Rice with Beef Black Pepper 320 g, ga perlu lagi pusing pas lapar.",
+      "status": 0,
+      "is_alfa_product": 1,
+      "price": 25000,
+      "product_special_price": 23500,
+      "product_special_price_to": "2023-04-09",
+      "product_special_price_from": "2023-04-15",
+      "product_alfagift_price": 24000,
+      "product_images": {
+        "type": "Base Image",
+        "url": [
+          "https://cs1.alfacart.com/product/1/1_A7650190002165_20220104145106889_base.jpg"
+        ]
+      },
+      "alfagift_platform": true,
+      "product_pickup_availability": 1,
+      "product_is_groceries": 1,
+      "product_visibility_pdp": 296,
+      "product_category": "Makanan",
+      "product_sub_category": null
+    },
+    {
+      "id": 56289,
+      "product_id": 56289,
+      "product_sku": "A06790303625",
+      "product_name": "FIESTA Ready Meal Chicken Teriyaki with Rice 320 g",
+      "product_desc": "FIESTA Ready Meal Chicken Teriyaki with Rice 320 g adalah inovasi dari sajian makanan instan siap saji terbaru yang dipersembahkan oleh FIESTA. FIESTA Ready Meal kini telah meluncurkan lini produk terbarunya, yakni dengan menghadirkan ready meal dengan varian nasi dengan chicken teriyaki. Dibuat dengan resep asli dari Jepang untuk dapat menyajikan ayam yang dilumuri dengan saus teriyaki dan dilengkapi sayuran segar yang juga disajikan dengan nasi. Kini telah tersedia dalam kemasan 320 gram yang sangat praktis dan mudah penyajiannya, karena sudah tersedia mangkuk dan hanya tinggal dipanaskan dengan microwave. Bersama FIESTA Ready Meal Chicken Teriyaki with Rice 320 g, ga perlu lagi pusing pas lapar.",
+      "status": 1,
+      "is_alfa_product": 1,
+      "price": 25000,
+      "product_special_price": 23500,
+      "product_special_price_to": "2023-04-09",
+      "product_special_price_from": "2023-04-15",
+      "product_alfagift_price": 24000,
+      "product_images": {
+        "type": "Base Image",
+        "url": [
+          "https://cs1.alfacart.com/product/1/1_A7650240002165_20210302082114673_base.jpg"
+        ]
+      },
+      "alfagift_platform": true,
+      "product_pickup_availability": 1,
+      "product_is_groceries": 1,
+      "product_visibility_pdp": 296,
+      "product_category": "Makanan",
+      "product_sub_category": null
+    },
+    {
+      "product_id": 56290,
+      "product_sku": "A06790303626",
+      "product_name": "FIESTA Ready Meal Chicken Bolognese Spaghetti 350 g",
+      "product_desc": "FIESTA Ready Meal Chicken Bolognese Spaghetti 300 g adalah makanan instan siap saji yang praktis dan cepat untuk disajikan, persembahan dari FIESTA. Kini FIESTA Ready Meal telah menghadirkan lini produk inovasi terbaru dari makanan instan siap saji, yakni varian spaghetti dengan chicken bolognese. Hadir dengan spaghetti ala Italia dilengkapi dengan saus bolognese dan daging ayam pilihan yang diolah sesuai dengan resep tradisional Italia, sehingga memiliki rasa spaghetti asli dari Italia. Tersedia dalam kemasan 300 gram yang sangat praktis dan mudah penyajiannya, karena sudah tersedia mangkuk dan hanya tinggal dipanaskan dengan microwave. Ga perlu lagi bingung pas lapar dengan FIESTA Ready Meal Chicken Bolognese Spaghetti 300 g.",
+      "product_category": "Makanan",
+      "product_images": {
+        "type": "Base Image",
+        "url": [
+          "https://cs1.alfacart.com/product/1/1_A7650270002165_20210302083800436_base.jpg"
+        ]
+      },
+      "status": 1,
+      "is_alfa_product": 1,
+      "alfagift_platform": true,
+      "product_pickup_availability": 1,
+      "product_is_groceries": 1,
+      "price": 25000,
+      "product_special_price": 23500,
+      "product_special_price_to": "2023-04-09",
+      "product_special_price_from": "2023-04-15",
+      "product_alfagift_price": 24000,
+      "product_visibility_pdp": 296,
+      "product_sub_category": null,
+      "id": 56290
+    },
+    {
+      "product_id": "56291",
+      "product_sku": "A06790303627",
+      "product_name": "SARI KUE by SARI ROTI Dorayaki Cheese Hokkaido 50 g",
+      "product_desc": "Sari Kue Dorayaki Cheese 55 g merupakan merupakan kue khas Jepang yang teksturnya mirip dengan pancake. Dibuat dari bahan-bahan pilihan berkualitas sehingga menghasilkan kue yang memiliki tekstur yang lembut disetiap gigitannya. Dilengkapi dengan isian krim keju premium, kue semakin nikmat disantap. Kue Dorayaki ini cocok dijadikan sebagai camilan santai saat kumpul bersama keluarga, sebagai bekal di perjalanan hingga pengganjal perut saat lapar.",
+      "product_category": "Makanan",
+      "product_images": {
+        "type": "Base Image",
+        "url": [
+          "https://cs1.alfacart.com/product/1/1_A7908540002167_20230220150806608_base.jpg"
+        ]
+      },
+      "status": 1,
+      "is_alfa_product": 1,
+      "alfagift_platform": true,
+      "product_pickup_availability": 0,
+      "product_is_groceries": 0,
+      "price": 7600,
+      "product_special_price": 7600,
+      "product_special_price_to": "2023-04-17",
+      "product_special_price_from": "2023-04-15",
+      "product_alfagift_price": 7800,
+      "product_visibility_pdp": 296,
+      "product_sub_category": null,
+      "id": 56291
+    },
+    {
+      "id": 56292,
+      "product_id": 829189898,
+      "product_sku": "A89829CB",
+      "product_name": "FRUIT TEA Minuman Teh Blackcurrant 350 ml",
+      "product_desc": "FRUIT TEA Minuman Teh Blackcurrant 350 ml adalah minuman teh kemasan yang diformulasi untuk menyegarkan tubuh dan semangat dalam menjalani aktivitas. Dibuat dari daun teh pilihan berkualitas dengan memadukan kombinasi rasa buah anggur segar yang akan memberikan ledakan sensasi segar yang unik dan istimewa. Praktis, mudah dibawa dan dinikmati kapan dan di mana saja saat haus melanda. Tersedia dalam kemasan botol PET 350 ml.",
+      "product_category": "Minuman",
+      "product_images": {
+        "type": "Base Image",
+        "url": [
+          "https://cs1.alfacart.com/product/1/1_A12790040881_20200805091834214_base.jpg"
+        ]
+      },
+      "status": 1,
+      "is_alfa_product": 1,
+      "alfagift_platform": true,
+      "product_pickup_availability": 1,
+      "product_is_groceries": 1,
+      "price": 3900,
+      "product_special_price": 3900,
+      "product_special_price_to": "2023-03-17",
+      "product_special_price_from": "2023-03-12",
+      "product_alfagift_price": 4000,
+      "product_visibility_pdp": 296,
+      "product_sub_category": null
+    },
+    {
+      "product_id": 218128909,
+      "product_sku": "A28299BT",
+      "product_name": "Hydro Coco Minuman Air Kelapa Original 300 ml",
+      "product_desc": "Hydro Coco Minuman Air Kelapa Original 250 ml adalah minuman isotonik alami dari Kalbe yang berbeda dari minuman isotonik lainnya. Sesuai dengan namanya, minuman Hydro Coco berasal dari air kelapa alami yang mengandung ion alami sehingga berbeda dengan minuman isotonik yang menggunakan ion sintetik. Air kelapa asli ini memiliki kandungan karbohidrat dan elektrolit seperti yang ada dalam cairan tubuh manusia. Kelebihan ini membuatnya dapat menggantikan ion tubuh yang hilang dengan lebih sempurna karena mudah diserap oleh tubuh kita. Oleh sebab itu, Hydro Coco adalah minuman sehat alami yang baik dan aman dikonsumsi.\n\nManfaat air kelapa asli ada dalam sebuah Hydro Coco Original 250ml adalah kandungan Vitamin C, Vitamin B3, Vitamin B5, dan Vitamin B6nya yang baik untuk kesehatan Anda. Selain itu, kandungan asam aminonya dapat menjadi sumber energi yang bisa mempercepat pemulihan otot setelah melakukan aktivitas seperti berolahraga. Kemasannya yang berbentuk tetrapack 250ml dan terjamin higienis, akan membuat Anda merasa praktis dan memilihnya sebagai minuman isotonik pilihan.",
+      "product_category": "Minuman",
+      "product_images": {
+        "type": "Base Image",
+        "url": [
+          "https://cs1.alfacart.com/product/1/1_A12890003851_20200504142349370_base.jpg"
+        ]
+      },
+      "status": 1,
+      "is_alfa_product": 1,
+      "alfagift_platform": true,
+      "product_pickup_availability": 0,
+      "product_is_groceries": 0,
+      "id": 56293,
+      "price": 6000,
+      "product_special_price": 6000,
+      "product_special_price_to": "2023-03-15",
+      "product_special_price_from": "2023-03-12",
+      "product_alfagift_price": 6500,
+      "product_visibility_pdp": 296,
+      "product_sub_category": null
+    }
+  ]
+}
