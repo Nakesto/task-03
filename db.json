@@ -114,7 +114,8 @@
       "product_is_groceries": 1,
       "product_visibility_pdp": 296,
       "product_category": "Makanan",
-      "product_sub_category": null
+      "product_sub_category": null,
+      "product_stock": 20
     },
     {
       "id": 56284,
@@ -140,7 +141,8 @@
       "product_is_groceries": 1,
       "product_visibility_pdp": 296,
       "product_category": "Makanan",
-      "product_sub_category": null
+      "product_sub_category": null,
+      "product_stock": 20
     },
     {
       "id": 56285,
@@ -166,7 +168,8 @@
       "product_is_groceries": 1,
       "product_visibility_pdp": 296,
       "product_category": "Makanan",
-      "product_sub_category": null
+      "product_sub_category": null,
+      "product_stock": 20
     },
     {
       "id": 56286,
@@ -192,7 +195,8 @@
       "product_is_groceries": 1,
       "product_visibility_pdp": 296,
       "product_category": "Makanan",
-      "product_sub_category": null
+      "product_sub_category": null,
+      "product_stock": 20
     },
     {
       "id": 56287,
@@ -218,7 +222,8 @@
       "product_is_groceries": 1,
       "product_visibility_pdp": 296,
       "product_category": "Makanan",
-      "product_sub_category": null
+      "product_sub_category": null,
+      "product_stock": 20
     },
     {
       "id": 56288,
@@ -244,7 +249,8 @@
       "product_is_groceries": 1,
       "product_visibility_pdp": 296,
       "product_category": "Makanan",
-      "product_sub_category": null
+      "product_sub_category": null,
+      "product_stock": 20
     },
     {
       "id": 56289,
@@ -270,9 +276,11 @@
       "product_is_groceries": 1,
       "product_visibility_pdp": 296,
       "product_category": "Makanan",
-      "product_sub_category": null
+      "product_sub_category": null,
+      "product_stock": 20
     },
     {
+      "id": 56290,
       "product_id": 56290,
       "product_sku": "A06790303626",
       "product_name": "FIESTA Ready Meal Chicken Bolognese Spaghetti 350 g",
@@ -285,6 +293,7 @@
         ]
       },
       "status": 1,
+      "product_stock": 25,
       "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 1,
@@ -295,11 +304,11 @@
       "product_special_price_from": "2023-04-15",
       "product_alfagift_price": 24000,
       "product_visibility_pdp": 296,
-      "product_sub_category": null,
-      "id": 56290
+      "product_sub_category": null
     },
     {
-      "product_id": "56291",
+      "id": 56291,
+      "product_id": 56291,
       "product_sku": "A06790303627",
       "product_name": "SARI KUE by SARI ROTI Dorayaki Cheese Hokkaido 50 g",
       "product_desc": "Sari Kue Dorayaki Cheese 55 g merupakan merupakan kue khas Jepang yang teksturnya mirip dengan pancake. Dibuat dari bahan-bahan pilihan berkualitas sehingga menghasilkan kue yang memiliki tekstur yang lembut disetiap gigitannya. Dilengkapi dengan isian krim keju premium, kue semakin nikmat disantap. Kue Dorayaki ini cocok dijadikan sebagai camilan santai saat kumpul bersama keluarga, sebagai bekal di perjalanan hingga pengganjal perut saat lapar.",
@@ -311,18 +320,18 @@
         ]
       },
       "status": 1,
+      "product_stock": 20,
       "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 0,
       "product_is_groceries": 0,
       "price": 7600,
-      "product_special_price": 7600,
+      "product_special_price": 7000,
       "product_special_price_to": "2023-04-17",
       "product_special_price_from": "2023-04-15",
       "product_alfagift_price": 7800,
       "product_visibility_pdp": 296,
-      "product_sub_category": null,
-      "id": 56291
+      "product_sub_category": null
     },
     {
       "id": 56292,
@@ -348,7 +357,8 @@
       "product_special_price_from": "2023-03-12",
       "product_alfagift_price": 4000,
       "product_visibility_pdp": 296,
-      "product_sub_category": null
+      "product_sub_category": null,
+      "product_stock": 20
     },
     {
       "product_id": 218128909,
@@ -373,6 +383,61 @@
       "product_special_price_to": "2023-03-15",
       "product_special_price_from": "2023-03-12",
       "product_alfagift_price": 6500,
+      "product_visibility_pdp": 296,
+      "product_sub_category": null,
+      "product_stock": 20
+    },
+    {
+      "id": 56294,
+      "product_id": 8889888,
+      "product_sku": "A893839BTY",
+      "product_name": "product happy tos Tortilla Chips Merah 160 g",
+      "product_desc": "Happy Tos Merah 160 g merupakan keripik renyah nan lezat yang terbuat dari biji jagung pilihan. Keripik Happy Tos diolah secara teliti dan digoreng dengan minyak kelapa sawit bermutu untuk menghasilkan keripik yang enak dengan tingkat kerenyahan yang pas. Selain teksturnya yang tipis dan renyah, paduan bumbu yang gurih menjadikan keripik ini makin nikmat saat disantap. Hadir dalam kemasan kantong berukuran 160 g juga menjadikannya teman camilan yang seru dan asyik yang dapat dengan mudah dikonsumsi kapan dan di mana saja dalam berbagai suasana. Sensasi meriah dan kombinasi rasa yang dihasilkan di mulut tentu membuatnya menjadi makanan favorit banyak orang dari segala usia. Nikmati camilan seru dari Happy Tos Merah 160 g untuk memeriahkan waktu santai atau kumpul seru bersama teman.",
+      "product_category": "Makanan",
+      "product_images": {
+        "type": "Base Image",
+        "url": [
+          "https://c.alfagift.id/product/1/1_A10040005372_20220127151331050_base.jpg"
+        ]
+      },
+      "status": 1,
+      "product_stock": 250,
+      "is_alfa_product": 1,
+      "alfagift_platform": true,
+      "product_pickup_availability": 1,
+      "product_is_groceries": 1,
+      "price": 7500,
+      "product_special_price": null,
+      "product_special_price_to": "",
+      "product_special_price_from": "",
+      "product_alfagift_price": 8000,
+      "product_visibility_pdp": 296,
+      "product_sub_category": null
+    },
+    {
+      "product_id": 8383898,
+      "product_sku": "A8838383AE",
+      "product_name": "Paroti Roti Sisir Mentega 140 g",
+      "product_desc": "Paroti Sisir Mentega 140g\nParoti Sisir Mentega 140g - Roti persembahan Paroti yang hadir dengan rasa mentega yang sangat nikmat ini sangat cocok dijadikan untuk menu sarapan pagi anda yang bisa dipadukan dengan susu hangat. Kemasan praktis sehingga dapat anda bawa dan cocok untuk dinikmati dimanapun. Dapatkan Paroti Sisir Mentega 140g di sini",
+      "product_category": "Makanan",
+      "product_images": {
+        "type": "Base Image",
+        "url": [
+          "https://cs1.alfacart.com/product/1/1_A7408030002168_20200618140614763_base.jpg"
+        ]
+      },
+      "product_stock": 100,
+      "status": 1,
+      "is_alfa_product": 1,
+      "alfagift_platform": true,
+      "product_pickup_availability": 0,
+      "product_is_groceries": 0,
+      "id": 56295,
+      "price": 11000,
+      "product_special_price": 7500,
+      "product_special_price_to": "2023-03-17T00:00:00.000Z",
+      "product_special_price_from": "2023-03-13T00:00:00.000Z",
+      "product_alfagift_price": 11500,
       "product_visibility_pdp": 296,
       "product_sub_category": null
     }

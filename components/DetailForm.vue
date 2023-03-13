@@ -308,6 +308,18 @@ const product_category = computed({
     });
   },
 });
+const product_stock = computed({
+  get() {
+    return $store.state.products.inputDetail.product_stock;
+  },
+  set(val) {
+    $store.commit("products/SET_INPUT", {
+      section: "inputDetail",
+      field: "product_stock",
+      value: val,
+    });
+  },
+});
 const product_images = computed({
   get() {
     return $store.state.products.inputDetail.product_images;
@@ -363,8 +375,13 @@ const fields = ref([
     ipt: product_name,
     label: "Product Name",
     name: "product_name",
-    penuh: true,
     rules: "required",
+  },
+  {
+    ipt: product_stock,
+    label: "Product Stock",
+    name: "product_stock",
+    rules: "required|numeric",
   },
 ]);
 const onFocus = (name) => {

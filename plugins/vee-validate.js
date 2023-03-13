@@ -20,3 +20,10 @@ extend("numeric", {
   ...numeric,
   message: "This field only contain numeric",
 });
+
+extend("price", {
+  validate(value) {
+    return parseInt(value) > 0;
+  },
+  message: "This field must greater than 0",
+});

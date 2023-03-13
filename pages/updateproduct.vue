@@ -3,7 +3,7 @@
     <b-overlay :show="isLoading">
       <div class="page-inner">
         <div class="page-header">
-          <h4 class="page-title">Form Wizard</h4>
+          <h4 class="page-title">Update product</h4>
           <ul class="breadcrumbs">
             <li class="nav-home">
               <a href="#">
@@ -14,13 +14,13 @@
               <i class="flaticon-right-arrow"></i>
             </li>
             <li class="nav-item">
-              <a href="#">Forms</a>
+              <NuxtLink to="/products">Products</NuxtLink>
             </li>
             <li class="separator">
               <i class="flaticon-right-arrow"></i>
             </li>
             <li class="nav-item">
-              <a href="#">Form Wizard</a>
+              <a href="#">Update Product</a>
             </li>
           </ul>
         </div>
@@ -178,6 +178,14 @@ const onSubmit = async () => {
         type: "Base Image",
         url: [inputDetail.value.product_images],
       },
+      product_special_price_to:
+        inputPrice.value.product_special_price_to === ""
+          ? ""
+          : new Date(inputPrice.value.product_special_price_to).toISOString(),
+      product_special_price_from:
+        inputPrice.value.product_special_price_from === ""
+          ? ""
+          : new Date(inputPrice.value.product_special_price_from).toISOString(),
       status: inputDetail.value.status ? 1 : 0,
       is_alfa_product: inputDetail.value.is_alfa_product ? 1 : 0,
       product_pickup_availability: inputDetail.value.product_pickup_availability
@@ -186,6 +194,7 @@ const onSubmit = async () => {
       product_is_groceries: inputDetail.value.product_is_groceries ? 1 : 0,
       product_visibility_pdp: 296,
       product_sub_category: null,
+      product_stock: parseInt(inputDetail.value.product_stock),
       product_id: parseInt(inputDetail.value.product_id),
     },
   });

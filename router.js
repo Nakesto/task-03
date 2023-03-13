@@ -12,6 +12,7 @@ const create = () => interopDefault(import("~/pages/createproduct.vue"));
 const child = () => interopDefault(import("~/pages/child.vue"));
 const detail = () => interopDefault(import("~/pages/detail.vue"));
 const update = () => interopDefault(import("~/pages/updateproduct.vue"));
+const error = () => interopDefault(import("~/pages/error.vue"));
 
 Vue.use(Router);
 export function createRouter() {
@@ -96,6 +97,11 @@ export function createRouter() {
         path: "/register",
         component: register,
         name: "register",
+      },
+      {
+        path: "*",
+        component: error,
+        name: "error",
       },
     ],
     linkActiveClass: "nuxt-link-active",

@@ -8,11 +8,7 @@
         <div class="col-md-12">
           <h4 class="info-text">Create Your Discount & Price</h4>
         </div>
-        <ValidationProvider
-          class="col-md-6"
-          rules="required"
-          v-slot="{ errors }"
-        >
+        <ValidationProvider class="col-md-6" v-slot="{ errors }">
           <div class="form-group">
             <label for="to-datepicker">Special price product from</label>
             <b-form-datepicker
@@ -21,6 +17,12 @@
               class="mb-2 mt-2"
               :min="new Date()"
               :max="maxDates"
+              :disabled="
+                product_special_price === null ||
+                product_special_price === '' ||
+                parseInt(product_special_price) <= 0 ||
+                isNaN(product_special_price)
+              "
             ></b-form-datepicker>
             <small
               style="font-size: 10px"
@@ -30,11 +32,7 @@
             >
           </div>
         </ValidationProvider>
-        <ValidationProvider
-          class="col-md-6"
-          rules="required"
-          v-slot="{ errors }"
-        >
+        <ValidationProvider class="col-md-6" v-slot="{ errors }">
           <div class="form-group">
             <label for="from-datepicker">Special price product to</label>
             <b-form-datepicker
@@ -42,6 +40,12 @@
               v-model="product_special_price_to"
               class="mb-2 mt-2"
               :min="minDates"
+              :disabled="
+                product_special_price === null ||
+                product_special_price === '' ||
+                parseInt(product_special_price) <= 0 ||
+                isNaN(product_special_price)
+              "
             ></b-form-datepicker>
           </div>
           <small
@@ -121,17 +125,12 @@ const $root = getCurrentInstance().proxy.$root;
 const $store = $root.$store;
 const emit = defineEmits(["onSection", "submit"]);
 const minDates = computed(() => {
-  if (product_special_price_from.value !== "") {
-    const currentDate = new Date(product_special_price_from.value);
-    currentDate.setDate(currentDate.getDate() + 1);
-    return currentDate;
-  }
   return new Date();
 });
 const maxDates = computed(() => {
   if (product_special_price_to.value !== "") {
     const currentDate = new Date(product_special_price_to.value);
-    currentDate.setDate(currentDate.getDate() - 1);
+    currentDate.setDate(currentDate.getDate());
     return currentDate;
   }
   return null;
@@ -202,13 +201,13 @@ const fields = ref([
     ipt: price,
     label: "Price",
     name: "price",
-    rules: "required|numeric",
+    rules: "required|numeric|price",
   },
   {
     ipt: product_special_price,
     label: "Product Special Price",
     name: "product_special_price",
-    rules: "required|numeric",
+    rules: "numeric",
   },
   {
     ipt: product_alfagift_price,

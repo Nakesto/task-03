@@ -40,20 +40,26 @@
           <del
             class="text-muted small"
             :style="
-              price > special_price
+              price > special_price && special_price != ''
                 ? 'visibility: visible'
                 : 'visibility: hidden'
             "
             >{{ price > special_price ? price : special_price | toRp }}</del
           >
-          <h3 class="text-danger mb-2 fw-bold">{{ special_price | toRp }}</h3>
+          <h3 class="text-danger mb-2 fw-bold">
+            {{ special_price == "" ? price : special_price | toRp }}
+          </h3>
         </div>
         <span
-          class="badge badge-success"
+          class="badge"
+          :class="status == 1 ? 'badge-success' : 'badge-danger'"
           style="height: fit-content"
-          >{{
-        }}</span>
+          >{{ status == 1 ? "Active" : "Inactive" }}</span
+        >
       </div>
+      <p class="text-muted fw-bold" style="font-size: 12px">
+        Stock: {{ stock }}
+      </p>
       <div class="d-flex justify-content-end mb-3">
         <div>
           <button
@@ -104,6 +110,10 @@ const props = defineProps({
     required: true,
   },
   status: {
+    type: [String, Number],
+    required: true,
+  },
+  stock: {
     type: [String, Number],
     required: true,
   },

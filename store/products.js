@@ -12,6 +12,7 @@ export const state = () => ({
     product_category: "",
     product_images: "",
     status: true,
+    product_stock: 0,
     is_alfa_product: true,
     alfagift_platform: true,
     product_pickup_availability: true,
@@ -66,7 +67,20 @@ export const mutations = {
       }
     });
     Object.entries(state.inputPrice).forEach((val) => {
-      state.inputPrice[val[0]] = product[val[0]];
+      if (
+        val[0] === "product_special_price_to" ||
+        val[0] === "product_special_price_from"
+      ) {
+        if (product[val[0]] !== "") {
+          const date = new Date(product[val[0]]);
+          const year = date.getFullYear();
+          const month = String(date.getMonth() + 1).padStart(2, "0");
+          const day = String(date.getDate()).padStart(2, "0");
+          state.inputPrice[val[0]] = `${year}-${month}-${day}`;
+        }
+      } else {
+        state.inputPrice[val[0]] = product[val[0]];
+      }
     });
   },
   DEL_PRODUCTS(state, value) {
@@ -80,6 +94,7 @@ export const mutations = {
       product_desc: "",
       product_category: "",
       product_images: "",
+      product_stock: "",
       status: true,
       is_alfa_product: true,
       alfagift_platform: true,

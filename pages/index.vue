@@ -29,7 +29,7 @@
         <div class="col-md-4">
           <div class="card card-info card-annoucement card-round">
             <div class="card-body text-center">
-              <div class="card-opening">Welcome Rian,</div>
+              <div class="card-opening">Welcome {{ data.firstName }},</div>
               <div class="card-desc">
                 Congrats and best wishes for success in your brand new life! I
                 knew that you would do this!
@@ -58,7 +58,7 @@
             </div>
             <div class="card-body">
               <div class="user-profile text-center">
-                <div class="name">Hizrian, 19</div>
+                <div class="name">{{ data.firstName }}, 19</div>
                 <div class="job">Frontend Developer</div>
                 <div class="desc">A man who hates loneliness</div>
                 <div class="social-media">
@@ -209,6 +209,13 @@ export default {
   },
 };
 </script>
-<script setup></script>
+<script setup>
+import { computed, getCurrentInstance } from "vue";
+
+const $root = getCurrentInstance().proxy.$root;
+const $store = $root.$store;
+
+const data = computed(() => $store.getters["regis/getData"] || []);
+</script>
 
 <style lang="scss" scoped></style>

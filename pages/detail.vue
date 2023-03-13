@@ -34,25 +34,119 @@
                       <div>
                         <del
                           class="text-muted small"
-                          v-if="product.price > product.product_special_price"
+                          v-if="
+                            product.price > product.product_special_price &&
+                            product.product_special_price !== null
+                          "
                           >{{ product.price | toRp }}</del
                         >
                         <h2 class="text-danger mb-2 fw-bold">
-                          {{ product.product_special_price | toRp }}
+                          {{
+                            product.product_special_price == null
+                              ? product.price
+                              : product.product_special_price | toRp
+                          }}
                         </h2>
                       </div>
-                      <span class="badge badge-black mt-2">{{
-                        product.product_category
-                      }}</span>
-                      <span
-                        class="badge mt-2"
-                        :class="
-                          product.status == 1 ? 'badge-success' : 'badge-danger'
-                        "
-                        >{{ product.status == 1 ? "Active" : "Inactive" }}</span
-                      >
+                      <div class="d-flex justify-content-between">
+                        <div>
+                          <span class="badge badge-black mt-2">{{
+                            product.product_category
+                          }}</span>
+                          <span
+                            class="badge mt-2"
+                            :class="
+                              product.status == 1
+                                ? 'badge-success'
+                                : 'badge-danger'
+                            "
+                            >{{
+                              product.status == 1 ? "Active" : "Inactive"
+                            }}</span
+                          >
+                        </div>
+                        <p></p>
+                      </div>
                     </div>
-                    <div class="col-12">
+                    <p
+                      v-if="
+                        product.product_special_price_from !== '' &&
+                        product.product_special_price_from !== null
+                      "
+                      class="text-muted fw-bold col-12 mb-1"
+                    >
+                      Promo Special Price from :
+                      <span>{{ product.product_special_price_from }}</span>
+                    </p>
+                    <p
+                      v-if="
+                        product.product_special_price_to !== '' &&
+                        product.product_special_price_to !== null
+                      "
+                      class="text-muted col-12 mb-3 fw-bold"
+                    >
+                      Promo Special Price to :
+                      <span>{{ product.product_special_price_to }}</span>
+                    </p>
+                    <p
+                      class="col-12 col-xl-4 justify-content-center mb-2 fw-bold"
+                    >
+                      Pickup Avaibility
+                      <span
+                        class="badge ml-2"
+                        :class="
+                          product.product_pickup_availability == 1
+                            ? 'badge-success'
+                            : 'badge-danger'
+                        "
+                        >{{
+                          product.product_pickup_availability == 1
+                            ? "Yes"
+                            : "No"
+                        }}</span
+                      >
+                    </p>
+                    <p
+                      class="col-12 col-xl-4 justify-content-center mb-2 fw-bold"
+                    >
+                      Alfa Product
+                      <span
+                        class="badge ml-2"
+                        :class="
+                          product.is_alfa_product == 1
+                            ? 'badge-success'
+                            : 'badge-danger'
+                        "
+                        >{{ product.is_alfa_product == 1 ? "Yes" : "No" }}</span
+                      >
+                    </p>
+                    <p
+                      class="col-12 col-xl-4 justify-content-center mb-2 fw-bold"
+                    >
+                      Alfagift Platform
+                      <span
+                        class="badge ml-2"
+                        :class="
+                          product.alfagift_platform
+                            ? 'badge-success'
+                            : 'badge-danger'
+                        "
+                        >{{ product.alfagift_platform ? "Yes" : "No" }}</span
+                      >
+                    </p>
+                    <p class="col-12 col-xl-4 fw-bold">
+                      Groceries
+                      <span
+                        class="badge ml-2"
+                        :class="
+                          product.product_is_groceries
+                            ? 'badge-success'
+                            : 'badge-danger'
+                        "
+                        >{{ product.product_is_groceries ? "Yes" : "No" }}</span
+                      >
+                    </p>
+                    <div class="col-12 mt-4">
                       <h4 class="fw-bold">Description</h4>
                       <p class="text-justify">{{ product.product_desc }}</p>
                     </div>
@@ -95,7 +189,7 @@ const $store = $root.$store;
 const product = computed(() => {
   const temp = $store.getters["products/getProducts"];
   if (temp != undefined) {
-    return temp.filter((val) => val.product_id === props.productId)[0];
+    return temp.filter((val) => val.id === props.productId)[0];
   }
 
   return [];

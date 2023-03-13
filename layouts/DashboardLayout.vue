@@ -384,7 +384,7 @@
                   aria-expanded="true"
                 >
                   <span>
-                    Hizrian
+                    {{ data.firstName }}
                     <span class="user-level">Administrator</span>
                     <span class="caret"></span>
                   </span>
@@ -1060,10 +1060,11 @@ export default {
 };
 </script>
 <script setup>
-import { getCurrentInstance } from "vue";
+import { computed, getCurrentInstance } from "vue";
 
 const $root = getCurrentInstance().proxy.$root;
 const $store = $root.$store;
+const data = computed(() => $store.getters["regis/getData"] || {});
 const logout = () => {
   $store.dispatch("regis/logout");
   location.reload();

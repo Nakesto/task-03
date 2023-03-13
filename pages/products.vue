@@ -84,7 +84,12 @@
             :category="product.product_category"
             :idProduct="product.id"
             :status="product.status"
-            :special_price="product.product_special_price"
+            :special_price="
+              product.product_special_price === null
+                ? ''
+                : product.product_special_price
+            "
+            :stock="product.product_stock"
             @show="showModal"
           />
         </div>
