@@ -21,7 +21,7 @@
           >
           <div class="ml-auto">
             <NuxtLink to="/products/create" class="btn btn-secondary"
-              >New Project</NuxtLink
+              >New Product</NuxtLink
             >
           </div>
         </div>
@@ -75,7 +75,7 @@
         <div
           v-for="(product, index) in paginatedItems"
           class="col-sm-6 col-lg-4 col-xl-3"
-          :key="index"
+          :key="product.id"
         >
           <Card
             :img="product.product_images.url[0]"

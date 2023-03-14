@@ -96,7 +96,7 @@
       "product_sku": "A06790303619",
       "product_name": "FIESTA Ready Meal Chicken Mushroom Noodle 300 g",
       "product_desc": "FIESTA Ready Meal Chicken Mushroom Noodle 300 g adalah inovasi dari sajian makanan instan siap saji terbaru yang dipersembahkan oleh FIESTA. FIESTA Ready Meal kini telah meluncurkan lini produk terbarunya, yakni dengan menghadirkan ready meal dengan varian mie dengan daging ayam dan jamur. Dibuat dengan resep asli untuk dapat menyajikan sajian mie dengan dilengkapi daging ayam serta jamur. Kini telah tersedia dalam kemasan 300 gram yang sangat praktis dan mudah penyajiannya, karena sudah tersedia di dalam mangkuk dan hanya tinggal dipanaskan dengan microwave. Hadirkan kenikmatan FIESTA Ready Meal Chicken Mushroom Noodle 300 g, sehingga ga perlu lagi pusing pas lapar.",
-      "status": 0,
+      "status": 1,
       "is_alfa_product": 1,
       "price": 25000,
       "product_special_price": 23500,
@@ -123,26 +123,26 @@
       "product_sku": "A06790303620",
       "product_name": "FIESTA Ready Meal Rice with Chicken Katsu Donburi 320 g",
       "product_desc": "FIESTA Ready Meal Rice with Chicken Katsu Donburi 320 g adalah inovasi dari sajian makanan instan siap saji terbaru yang dipersembahkan oleh FIESTA. FIESTA Ready Meal kini telah meluncurkan lini produk terbarunya, yakni dengan menghadirkan ready meal dengan varian nasi dengan chicken katsu donburi. Dibuat dengan resep asli dari Jepang untuk dapat menyajikan ayam katsu dengan dilengkapi saus tonkatsu nikmat yang juga disajikan dengan nasi. Kini telah tersedia dalam kemasan 320 gram yang sangat praktis dan mudah penyajiannya, karena sudah tersedia mangkuk dan hanya tinggal dipanaskan dengan microwave. Bersama FIESTA Ready Meal Rice with Chicken Katsu Donburi 320 g, ga perlu lagi pusing pas lapar.",
-      "status": 1,
-      "is_alfa_product": 1,
-      "price": 25000,
-      "product_special_price": 23500,
-      "product_special_price_to": "2023-04-09",
-      "product_special_price_from": "2023-04-15",
-      "product_alfagift_price": 24000,
+      "product_category": "Makanan",
       "product_images": {
         "type": "Base Image",
         "url": [
           "https://cs1.alfacart.com/product/1/1_A7650230002165_20210302080542303_base.jpg"
         ]
       },
+      "status": 0,
+      "product_stock": 20,
+      "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 1,
       "product_is_groceries": 1,
+      "price": 25000,
+      "product_special_price": 23500,
+      "product_special_price_to": "2023-04-09T00:00:00.000Z",
+      "product_special_price_from": "2023-04-15T00:00:00.000Z",
+      "product_alfagift_price": 24000,
       "product_visibility_pdp": 296,
-      "product_category": "Makanan",
-      "product_sub_category": null,
-      "product_stock": 20
+      "product_sub_category": null
     },
     {
       "id": 56285,
@@ -177,26 +177,26 @@
       "product_sku": "A06790303622",
       "product_name": "FIESTA Ready Meal Chicken Barbeque Noodle 300 g",
       "product_desc": "FIESTA Ready Meal Chicken Barbeque Noodle 300 g adalah inovasi dari sajian makanan instan siap saji terbaru yang dipersembahkan oleh FIESTA. FIESTA Ready Meal kini telah meluncurkan lini produk terbarunya, yakni dengan menghadirkan ready meal dengan varian mie dengan daging ayam yang dimasak dalam bumbu barbekiu. Dibuat dengan resep asli untuk dapat menyajikan sajian mie dengan daging ayam dan saus barbeque. Kini telah tersedia dalam kemasan 300 gram yang sangat praktis dan mudah penyajiannya, karena sudah tersedia di dalam mangkuk dan hanya tinggal dipanaskan dengan microwave. Hadirkan kenikmatan FIESTA Ready Meal Chicken Barbeque Noodle 300 g, sehingga ga perlu lagi pusing pas lapar.",
-      "status": 1,
-      "is_alfa_product": 1,
-      "price": 25000,
-      "product_special_price": 23500,
-      "product_special_price_to": "2023-04-09",
-      "product_special_price_from": "2023-04-15",
-      "product_alfagift_price": 24000,
+      "product_category": "Makanan",
       "product_images": {
         "type": "Base Image",
         "url": [
           "https://cs1.alfacart.com/product/1/1_A7650260002165_20210302083426395_base.jpg"
         ]
       },
+      "status": 1,
+      "product_stock": 20,
+      "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 1,
       "product_is_groceries": 1,
+      "price": 25000,
+      "product_special_price": 23500,
+      "product_special_price_to": "2023-04-09T00:00:00.000Z",
+      "product_special_price_from": "2023-04-15T00:00:00.000Z",
+      "product_alfagift_price": 24000,
       "product_visibility_pdp": 296,
-      "product_category": "Makanan",
-      "product_sub_category": null,
-      "product_stock": 20
+      "product_sub_category": null
     },
     {
       "id": 56287,
@@ -204,26 +204,26 @@
       "product_sku": "A06790303623",
       "product_name": "FIESTA Ready Meal Rice with Karage and Sweet Sour Sauce 320 g",
       "product_desc": "FIESTA Ready Meal Rice with Karage and Sweet Sour Sauce 320 g adalah makanan instan siap saji yang hadir dengan varian nasi dengan chicken karage dan saus asam manis. Hadir dengan potongan ayam karage berkualitas dengan saus asam manis dan disajikan lengkap dengan nasi dan sayuran. Sangat praktis dan mudah penyajiannya, karena sudah tersedia mangkuk dan hanya tinggal dipanaskan dengan microwave. Tersedia dalam kemasan 320 g.",
-      "status": 0,
-      "is_alfa_product": 1,
-      "price": 25000,
-      "product_special_price": 23500,
-      "product_special_price_to": "2023-04-09",
-      "product_special_price_from": "2023-04-15",
-      "product_alfagift_price": 24000,
+      "product_category": "Makanan",
       "product_images": {
         "type": "Base Image",
         "url": [
           "https://cs1.alfacart.com/product/1/1_A7650220002165_20220104144406537_base.jpg"
         ]
       },
+      "status": 1,
+      "product_stock": 20,
+      "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 1,
       "product_is_groceries": 1,
+      "price": 25000,
+      "product_special_price": 23500,
+      "product_special_price_to": "2023-04-09T00:00:00.000Z",
+      "product_special_price_from": "2023-04-15T00:00:00.000Z",
+      "product_alfagift_price": 24000,
       "product_visibility_pdp": 296,
-      "product_category": "Makanan",
-      "product_sub_category": null,
-      "product_stock": 20
+      "product_sub_category": null
     },
     {
       "id": 56288,
@@ -231,7 +231,7 @@
       "product_sku": "A06790303624",
       "product_name": "FIESTA Ready Meal Rice with Beef Black Pepper 320 g",
       "product_desc": "FIESTA Ready Meal Rice with Beef Black Pepper 320 g adalah inovasi dari sajian makanan instan siap saji terbaru yang dipersembahkan oleh FIESTA. FIESTA Ready Meal kini telah meluncurkan lini produk terbarunya, yakni dengan menghadirkan ready meal dengan varian nasi dengan daging sapi yang dimasak dengan bumbu lada hitam. Dibuat dengan resep asli untuk dapat menyajikan sajian daging sapi dengan dilumuri saus lada hitam segar yang juga disajikan dengan nasi. Kini telah tersedia dalam kemasan 320 gram yang sangat praktis dan mudah penyajiannya, karena sudah tersedia mangkuk dan hanya tinggal dipanaskan dengan microwave. Bersama FIESTA Ready Meal Rice with Beef Black Pepper 320 g, ga perlu lagi pusing pas lapar.",
-      "status": 0,
+      "status": 1,
       "is_alfa_product": 1,
       "price": 25000,
       "product_special_price": 23500,
@@ -258,7 +258,7 @@
       "product_sku": "A06790303625",
       "product_name": "FIESTA Ready Meal Chicken Teriyaki with Rice 320 g",
       "product_desc": "FIESTA Ready Meal Chicken Teriyaki with Rice 320 g adalah inovasi dari sajian makanan instan siap saji terbaru yang dipersembahkan oleh FIESTA. FIESTA Ready Meal kini telah meluncurkan lini produk terbarunya, yakni dengan menghadirkan ready meal dengan varian nasi dengan chicken teriyaki. Dibuat dengan resep asli dari Jepang untuk dapat menyajikan ayam yang dilumuri dengan saus teriyaki dan dilengkapi sayuran segar yang juga disajikan dengan nasi. Kini telah tersedia dalam kemasan 320 gram yang sangat praktis dan mudah penyajiannya, karena sudah tersedia mangkuk dan hanya tinggal dipanaskan dengan microwave. Bersama FIESTA Ready Meal Chicken Teriyaki with Rice 320 g, ga perlu lagi pusing pas lapar.",
-      "status": 1,
+      "status": 0,
       "is_alfa_product": 1,
       "price": 25000,
       "product_special_price": 23500,
@@ -280,7 +280,6 @@
       "product_stock": 20
     },
     {
-      "id": 56290,
       "product_id": 56290,
       "product_sku": "A06790303626",
       "product_name": "FIESTA Ready Meal Chicken Bolognese Spaghetti 350 g",
@@ -293,7 +292,6 @@
         ]
       },
       "status": 1,
-      "product_stock": 25,
       "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 1,
@@ -304,11 +302,12 @@
       "product_special_price_from": "2023-04-15",
       "product_alfagift_price": 24000,
       "product_visibility_pdp": 296,
-      "product_sub_category": null
+      "product_sub_category": null,
+      "id": 56290,
+      "product_stock": 20
     },
     {
-      "id": 56291,
-      "product_id": 56291,
+      "product_id": "56291",
       "product_sku": "A06790303627",
       "product_name": "SARI KUE by SARI ROTI Dorayaki Cheese Hokkaido 50 g",
       "product_desc": "Sari Kue Dorayaki Cheese 55 g merupakan merupakan kue khas Jepang yang teksturnya mirip dengan pancake. Dibuat dari bahan-bahan pilihan berkualitas sehingga menghasilkan kue yang memiliki tekstur yang lembut disetiap gigitannya. Dilengkapi dengan isian krim keju premium, kue semakin nikmat disantap. Kue Dorayaki ini cocok dijadikan sebagai camilan santai saat kumpul bersama keluarga, sebagai bekal di perjalanan hingga pengganjal perut saat lapar.",
@@ -320,18 +319,19 @@
         ]
       },
       "status": 1,
-      "product_stock": 20,
       "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 0,
       "product_is_groceries": 0,
       "price": 7600,
-      "product_special_price": 7000,
+      "product_special_price": 7600,
       "product_special_price_to": "2023-04-17",
       "product_special_price_from": "2023-04-15",
       "product_alfagift_price": 7800,
       "product_visibility_pdp": 296,
-      "product_sub_category": null
+      "product_sub_category": null,
+      "id": 56291,
+      "product_stock": 20
     },
     {
       "id": 56292,
@@ -372,7 +372,7 @@
           "https://cs1.alfacart.com/product/1/1_A12890003851_20200504142349370_base.jpg"
         ]
       },
-      "status": 1,
+      "status": 0,
       "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 0,
@@ -388,7 +388,6 @@
       "product_stock": 20
     },
     {
-      "id": 56294,
       "product_id": 8889888,
       "product_sku": "A893839BTY",
       "product_name": "product happy tos Tortilla Chips Merah 160 g",
@@ -401,11 +400,12 @@
         ]
       },
       "status": 1,
-      "product_stock": 250,
       "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 1,
       "product_is_groceries": 1,
+      "id": 56294,
+      "product_stock": 25,
       "price": 7500,
       "product_special_price": null,
       "product_special_price_to": "",
@@ -415,29 +415,31 @@
       "product_sub_category": null
     },
     {
-      "product_id": 8383898,
-      "product_sku": "A8838383AE",
-      "product_name": "Paroti Roti Sisir Mentega 140 g",
-      "product_desc": "Paroti Sisir Mentega 140g\nParoti Sisir Mentega 140g - Roti persembahan Paroti yang hadir dengan rasa mentega yang sangat nikmat ini sangat cocok dijadikan untuk menu sarapan pagi anda yang bisa dipadukan dengan susu hangat. Kemasan praktis sehingga dapat anda bawa dan cocok untuk dinikmati dimanapun. Dapatkan Paroti Sisir Mentega 140g di sini",
+      "product_id": 2992920,
+      "product_sku": "A8329289BV",
+      "product_name": "Alfamart Selai Kacang 120 g",
+      "product_desc": "Alfamart Selai Kacang 120 g merupakan produk selai dengan varian rasa kacang olahan dari Alfamart. Dibuat dari kacang tanah dan bahan-bahan pilihan yang berkualitas tinggi dan kemudian melalui proses pengolahan yang modern dan higienis sehingga menghasilkan selai kacang dengan tetap mempertahankan citarasa gurih alami kacang. Rasa alami dari kacang yang nikmat akan menjadi perpaduan sempurna dengan roti atau kue favorit Anda. Tersedia dalam kemasan cup plastik 150 gram dengan segel alumunium yang praktis serta memudahkan saat penggunaan maupun penyimpanan. Dapat digunakan sebagai topping ataupun filling pada makanan favorit. Nikmati rasa gurih alami kacang di dalam Alfamart Selai Kacang 150 g.",
       "product_category": "Makanan",
       "product_images": {
         "type": "Base Image",
         "url": [
-          "https://cs1.alfacart.com/product/1/1_A7408030002168_20200618140614763_base.jpg"
+          "https://cs1.alfacart.com/product/1/1_A10510882663_20201202163035640_base.jpg",
+          "https://cs1.alfacart.com/product/1/_14Des16RF4_A10510882663_1_0_base.jpg",
+          "https://cs1.alfacart.com/product/1/_14Des16RF4_A10510882663_2_0_base.jpg"
         ]
       },
-      "product_stock": 100,
+      "product_stock": 200,
       "status": 1,
       "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 0,
       "product_is_groceries": 0,
       "id": 56295,
-      "price": 11000,
-      "product_special_price": 7500,
-      "product_special_price_to": "2023-03-17T00:00:00.000Z",
-      "product_special_price_from": "2023-03-13T00:00:00.000Z",
-      "product_alfagift_price": 11500,
+      "price": 19600,
+      "product_special_price": null,
+      "product_special_price_to": "",
+      "product_special_price_from": "",
+      "product_alfagift_price": 20000,
       "product_visibility_pdp": 296,
       "product_sub_category": null
     }

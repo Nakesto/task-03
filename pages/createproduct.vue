@@ -27,7 +27,7 @@
         <div class="row">
           <div class="wizard-container wizard-round col-md-11">
             <div class="wizard-header text-center">
-              <h3 class="wizard-title"><b>Register</b> Your Product</h3>
+              <h3 class="wizard-title"><b>Create</b> Your Product</h3>
               <small
                 >This information will let us know more about your
                 product.</small
@@ -73,11 +73,13 @@
                 <DetailForm
                   v-if="active[0]?.name === 'Detail'"
                   @onSection="onSection"
+                  type="Create"
                 />
                 <PriceForm
                   v-if="active[0]?.name === 'Disc & Price'"
-                  @submit="onSubmit"
+                  @submit="openModal"
                   @onSection="onSection"
+                  type="Create"
                 />
               </div>
             </div>
@@ -85,6 +87,41 @@
         </div>
       </div>
     </b-overlay>
+    <Modal
+      v-if="isCreate"
+      :title="'Create Product'"
+      :msg="'Are you sure want to create the product?'"
+    >
+      <template #content>
+        <div class="d-flex justify-content-center">
+          <b-overlay
+            rounded
+            opacity="0.6"
+            spinner-small
+            spinner-variant="primary"
+            class="d-inline-block"
+          >
+            <div class="swal-button-container">
+              <button
+                class="swal-button swal-button--confirm btn btn-success"
+                @click="onSubmit"
+              >
+                Yes, delete it!
+              </button>
+            </div>
+          </b-overlay>
+          <div class="swal-button-container">
+            <button
+              class="swal-button swal-button--cancel btn btn-danger"
+              @click="isCreate = false"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </template>
+    </Modal>
+    <!-- <Alert v-if="isError" :msg="msg.error" variant="danger" /> -->
   </div>
 </template>
 <script>
@@ -103,6 +140,7 @@ export default {
 import { computed, getCurrentInstance, onMounted, onUnmounted, ref } from "vue";
 import PriceForm from "../components/PriceForm.vue";
 import DetailForm from "../components/DetailForm.vue";
+import Modal from "../components/base/Modal.vue";
 
 const $root = getCurrentInstance().proxy.$root;
 const $store = $root.$store;
@@ -113,6 +151,7 @@ const inputPrice = computed(() => $store.getters["products/getInputPrice"]);
 const isLoading = computed(() => $store.getters["products/getIsLoading"]);
 const indicator = ref(null);
 const activeTab = ref(0);
+const isCreate = ref(false);
 const observe = ref(null);
 const inWidth = ref(0);
 const tabs = computed(() => {
@@ -149,18 +188,26 @@ const onSection = (type) => {
   }
 };
 
+const openModal = () => {
+  isCreate.value = true;
+};
+
 const onSubmit = async () => {
   const completed = await $store.dispatch("products/createProducts", {
     axiosInstance: $axios,
     value: {
       ...inputDetail.value,
       ...inputPrice.value,
-      price: parseInt(inputPrice.value.price),
-      product_special_price: parseInt(inputPrice.value.product_special_price),
-      product_alfagift_price: parseInt(inputPrice.value.product_alfagift_price),
+      price: parseInt(inputPrice.value.price.replace(".", "")),
+      product_special_price: parseInt(
+        inputPrice.value.product_special_price?.replace(".", "")
+      ),
+      product_alfagift_price: parseInt(
+        inputPrice.value.product_alfagift_price?.replace(".", "")
+      ),
       product_images: {
         type: "Base Image",
-        url: [inputDetail.value.product_images],
+        url: inputDetail.value.product_images,
       },
       product_special_price_to:
         inputPrice.value.product_special_price_to === ""

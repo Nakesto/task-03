@@ -414,30 +414,26 @@
             </div>
             <ul class="nav nav-primary">
               <li class="nav-item">
-                <a
-                  data-toggle="collapse"
-                  href="#dashboard"
+                <NuxtLink to="/users" class="collapsed" aria-expanded="false">
+                  <i class="fas fa-home"></i>
+                  <p>Home</p>
+                </NuxtLink>
+              </li>
+              <li class="nav-item">
+                <NuxtLink to="/users" class="collapsed" aria-expanded="false">
+                  <i class="fas fa-user-alt"></i>
+                  <p>User</p>
+                </NuxtLink>
+              </li>
+              <li class="nav-item">
+                <NuxtLink
+                  to="/products"
                   class="collapsed"
                   aria-expanded="false"
                 >
-                  <i class="fas fa-home"></i>
-                  <p>List</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="dashboard">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <NuxtLink to="/users">
-                        <span class="sub-item">Users</span>
-                      </NuxtLink>
-                    </li>
-                    <li>
-                      <NuxtLink to="/products">
-                        <span class="sub-item">Products</span>
-                      </NuxtLink>
-                    </li>
-                  </ul>
-                </div>
+                  <i class="fab fa-wpforms"></i>
+                  <p>Products</p>
+                </NuxtLink>
               </li>
             </ul>
           </div>

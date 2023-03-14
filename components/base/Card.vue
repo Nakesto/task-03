@@ -52,15 +52,38 @@
         </div>
         <span
           class="badge"
-          :class="status == 1 ? 'badge-success' : 'badge-danger'"
+          :class="isActive ? 'badge-success' : 'badge-danger'"
           style="height: fit-content"
-          >{{ status == 1 ? "Active" : "Inactive" }}</span
+          >{{ isActive ? "Active" : "Inactive" }}</span
         >
       </div>
       <p class="text-muted fw-bold" style="font-size: 12px">
         Stock: {{ stock }}
       </p>
-      <div class="d-flex justify-content-end mb-3">
+      <div class="d-flex justify-content-between mb-3">
+        <b-overlay :show="isLoading">
+          <div
+            class="toggle btn btn-round"
+            :class="isActive ? 'btn-success' : 'btn-black'"
+            style="width: 92.9062px; height: 43.7969px"
+            @click="onToggle(!isActive)"
+          >
+            <div
+              class="toggle-group"
+              style="transition: all 0.5s cubic-bezier(0.29, 1.2, 0.79, 1) 0s"
+              :style="
+                !isActive
+                  ? 'transform: translate3d(-88px, 0px, 0px)'
+                  : 'transform: translate3d(0px, 0px, 0px)'
+              "
+            >
+              <label class="btn btn-success toggle-on">Active</label
+              ><label class="btn btn-black active toggle-off ml-1"
+                >Inactive</label
+              ><span class="toggle-handle btn btn-black"></span>
+            </div>
+          </div>
+        </b-overlay>
         <div>
           <button
             @click="goDetail('update')"
@@ -83,7 +106,7 @@
 </template>
 
 <script setup>
-import { getCurrentInstance, ref } from "vue";
+import { computed, getCurrentInstance, ref, toRefs, watchEffect } from "vue";
 const props = defineProps({
   idProduct: {
     type: [String, Number],
@@ -119,12 +142,18 @@ const props = defineProps({
   },
 });
 const emit = defineEmits(["show"]);
+const $root = getCurrentInstance().proxy.$root;
+const $store = $root.$store;
+const $axios = $root.$axios;
 const isHover = ref(false);
+const { status } = toRefs(props);
+const isActive = ref(false);
+const isClicked = ref(false);
 const onHover = () => {
   isHover.value = !isHover.value;
 };
 const router = getCurrentInstance().proxy.$router;
-
+const isLoading = ref(false);
 const goDetail = (path) => {
   router.push({
     name: path,
@@ -133,12 +162,35 @@ const goDetail = (path) => {
     },
   });
 };
+
+const onToggle = async (val) => {
+  isLoading.value = true;
+  if (!isClicked.value) {
+    const completed = await $store.dispatch("products/changeStatus", {
+      axiosInstance: $axios,
+      id: props.idProduct,
+      val: val,
+    });
+
+    if (completed) {
+      isClicked.value = true;
+      isActive.value = val;
+    }
+
+    isLoading.value = false;
+  }
+};
+
+watchEffect(() => {
+  isActive.value = status.value;
+});
 </script>
 
 <style lang="css" scoped>
 h4 {
   display: -webkit-box;
   max-width: calc(100%);
+  height: 3.2rem;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;

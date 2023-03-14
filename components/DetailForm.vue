@@ -191,6 +191,55 @@
             </div>
           </b-form-group>
         </ValidationProvider>
+        <div class="d-flex justify-content-end col-12 mt-5">
+          <span @click="addInputImage" class="btn btn-primary">Add Image</span>
+        </div>
+        <ValidationProvider
+          :class="[`col-12 mt-2`]"
+          rules="required"
+          v-slot="{ errors }"
+          v-for="(val, index) in imageRow"
+          :key="index"
+        >
+          <b-form-group :class="[`mb-0 py-2 col-12`]">
+            <div class="d-flex justify-content-between mb-2">
+              <label :for="`images-${index}`" class="mt-3"
+                >Product Image:</label
+              >
+              <button
+                @click="removeInputImage(index)"
+                type="button"
+                class="btn btn-icon btn-round btn-danger"
+              >
+                <b-icon
+                  icon="trash-fill"
+                  style="height: 15px; width: 15px"
+                ></b-icon>
+              </button>
+            </div>
+            <input
+              :id="`images-${index}`"
+              :placeholder="'Your Product Image'"
+              :value="$store.state.products.inputDetail.product_images[index]"
+              @input="updateValue($event.target.value, index)"
+              class="form-control"
+              autocomplete="off"
+              @focus="onFocus(`images-${index}`)"
+              @blur="onBlur"
+            />
+            <small
+              style="font-size: 10px"
+              :style="
+                activeInput == `images-${index}`
+                  ? 'display: block'
+                  : 'display: none'
+              "
+              :id="`images-${index}`"
+              class="text-danger"
+              >{{ errors[0] }}</small
+            >
+          </b-form-group>
+        </ValidationProvider>
         <ValidationProvider class="col-12" rules="required" v-slot="{ errors }">
           <div
             class="form-group col-12 mt-3"
@@ -207,13 +256,20 @@
               @focus="onFocus('product_desc')"
               @blur="onBlur"
             ></textarea>
-            <label
-              v-if="activeInput === 'product_desc'"
-              id="about-error"
-              class="error"
-              :for="product_desc"
-              >{{ errors[0] }}</label
-            >
+            <div class="d-flex justify-content-between mt-2">
+              <label
+                id="about-error"
+                :style="
+                  activeInput === 'product_desc'
+                    ? 'visibility: visible'
+                    : 'visibility: hidden'
+                "
+                class="error"
+                :for="product_desc"
+                >{{ errors[0] }}</label
+              >
+              <p class="text-muted fw-bold">{{ product_desc.length }}/1000</p>
+            </div>
           </div>
         </ValidationProvider>
       </div>
@@ -320,18 +376,48 @@ const product_stock = computed({
     });
   },
 });
-const product_images = computed({
-  get() {
-    return $store.state.products.inputDetail.product_images;
-  },
-  set(val) {
-    $store.commit("products/SET_INPUT", {
-      section: "inputDetail",
-      field: "product_images",
-      value: val,
-    });
-  },
-});
+// const product_images = computed({
+//   get() {
+//     return $store.state.products.inputDetail.product_images;
+//   },
+//   set(val) {
+//     $store.commit("products/SET_INPUT", {
+//       section: "inputDetail",
+//       field: "product_images",
+//       value: val,
+//     });
+//   },
+// });
+
+const imageRow = computed(
+  () => $store.state.products.inputDetail.product_images
+);
+
+const addInputImage = () => {
+  $store.commit("products/ADD_ROW_IMAGE", {
+    section: "inputDetail",
+    field: "product_images",
+    row: imageRow.value.length - 1,
+    value: "",
+  });
+};
+
+const updateValue = (val, index) => {
+  $store.commit("products/UPDATE_IMAGE", {
+    section: "inputDetail",
+    field: "product_images",
+    row: index,
+    value: val,
+  });
+};
+
+const removeInputImage = (index) => {
+  $store.commit("products/REMOVE_ROW_IMAGE", {
+    section: "inputDetail",
+    field: "product_images",
+    row: index,
+  });
+};
 const status = computed(() => $store.state.products.inputDetail.status);
 const is_alfa_product = computed(
   () => $store.state.products.inputDetail.is_alfa_product
@@ -366,22 +452,17 @@ const fields = ref([
     rules: "required",
   },
   {
-    ipt: product_images,
-    label: "Image URL",
-    name: "product_images",
-    rules: "required",
+    ipt: product_stock,
+    label: "Product Stock",
+    name: "product_stock",
+    rules: "required|numeric",
   },
   {
     ipt: product_name,
     label: "Product Name",
     name: "product_name",
     rules: "required",
-  },
-  {
-    ipt: product_stock,
-    label: "Product Stock",
-    name: "product_stock",
-    rules: "required|numeric",
+    penuh: true,
   },
 ]);
 const onFocus = (name) => {

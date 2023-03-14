@@ -8,7 +8,18 @@
         <div class="col-md-12">
           <h4 class="info-text">Create Your Discount & Price</h4>
         </div>
-        <ValidationProvider class="col-md-6" v-slot="{ errors }">
+        <ValidationProvider
+          class="col-md-6"
+          :rules="
+            product_special_price === null ||
+            product_special_price === '' ||
+            parseInt(product_special_price) <= 0 ||
+            isNaN(product_special_price)
+              ? ''
+              : 'required'
+          "
+          v-slot="{ errors }"
+        >
           <div class="form-group">
             <label for="to-datepicker">Special price product from</label>
             <b-form-datepicker
@@ -32,7 +43,18 @@
             >
           </div>
         </ValidationProvider>
-        <ValidationProvider class="col-md-6" v-slot="{ errors }">
+        <ValidationProvider
+          class="col-md-6"
+          :rules="
+            product_special_price === null ||
+            product_special_price === '' ||
+            parseInt(product_special_price) <= 0 ||
+            isNaN(product_special_price)
+              ? ''
+              : 'required'
+          "
+          v-slot="{ errors }"
+        >
           <div class="form-group">
             <label for="from-datepicker">Special price product to</label>
             <b-form-datepicker
@@ -99,7 +121,7 @@
               type="submit"
               class="btn btn-next btn-danger"
               name="next"
-              value="Next"
+              :value="type"
               :disabled="invalid"
             />
             <input
@@ -123,6 +145,7 @@ import { computed, getCurrentInstance, ref } from "vue";
 
 const $root = getCurrentInstance().proxy.$root;
 const $store = $root.$store;
+const props = defineProps(["type"]);
 const emit = defineEmits(["onSection", "submit"]);
 const minDates = computed(() => {
   return new Date();
@@ -143,10 +166,27 @@ const price = computed({
     $store.commit("products/SET_INPUT", {
       section: "inputPrice",
       field: "price",
-      value: val,
+      value: formatRupiah(val),
     });
   },
 });
+
+function formatRupiah(angka, prefix) {
+  let number_string = angka.replace(/[^,\d]/g, "").toString(),
+    split = number_string.split(","),
+    sisa = split[0].length % 3,
+    rupiah = split[0].substr(0, sisa),
+    ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+  if (ribuan) {
+    let separator = sisa ? "." : "";
+    rupiah += separator + ribuan.join(".");
+  }
+
+  rupiah = split[1] != undefined ? rupiah + "," + split[1] : rupiah;
+  return prefix == undefined ? rupiah : rupiah ? "Rp. " + rupiah : "";
+}
+
 const product_special_price = computed({
   get() {
     return $store.state.products.inputPrice.product_special_price;
@@ -155,7 +195,7 @@ const product_special_price = computed({
     $store.commit("products/SET_INPUT", {
       section: "inputPrice",
       field: "product_special_price",
-      value: val,
+      value: formatRupiah(val),
     });
   },
 });
@@ -191,7 +231,7 @@ const product_alfagift_price = computed({
     $store.commit("products/SET_INPUT", {
       section: "inputPrice",
       field: "product_alfagift_price",
-      value: val,
+      value: formatRupiah(val),
     });
   },
 });
@@ -201,19 +241,19 @@ const fields = ref([
     ipt: price,
     label: "Price",
     name: "price",
-    rules: "required|numeric|price",
+    rules: "required|price",
   },
   {
     ipt: product_special_price,
     label: "Product Special Price",
     name: "product_special_price",
-    rules: "numeric",
+    rules: "price",
   },
   {
     ipt: product_alfagift_price,
     label: "Product Alfagift Price",
     name: "product_alfagift_price",
-    rules: "required|numeric",
+    rules: "required|price",
   },
 ]);
 </script>

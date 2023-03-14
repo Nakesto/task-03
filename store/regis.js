@@ -15,7 +15,7 @@ export const state = () => ({
   data: localStorage.getItem("data")
     ? JSON.parse(localStorage.getItem("data"))
     : null,
-  accessToken: localStorage.getItem("accessToken") || null,
+  accessToken: getCookie("accessToken") || null,
   err: {
     fName: "",
     lName: "",
@@ -96,6 +96,14 @@ export const mutations = {
   SET_ACCESSTOKEN(state, value) {
     state.accessToken = value;
     localStorage.setItem("accessToken", value);
+    var currentDate = new Date();
+
+    // add one hour to the current date
+    var datePlusOneHour = new Date(currentDate.getTime() + 1 * 60 * 60 * 1000);
+
+    // format the date as a string
+    var formattedDate = datePlusOneHour.toISOString();
+    document.cookie = `accessToken=${value}; expires=${formattedDate}`;
   },
   RESET_INPUT(state, value) {
     state.err = {
@@ -214,5 +222,23 @@ export const actions = {
     localStorage.removeItem("data");
     localStorage.removeItem("isLogin");
     localStorage.removeItem("accessToken");
+    document.cookie =
+      "accessToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   },
 };
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}

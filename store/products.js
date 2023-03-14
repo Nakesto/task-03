@@ -2,7 +2,9 @@ import { API_URL, API_AUTH_URL } from "./regis";
 
 export const state = () => ({
   products: [],
+  searchProducts: [],
   isLoading: false,
+  searchLoading: false,
   inputDetail: {
     id: "",
     product_id: "",
@@ -10,9 +12,9 @@ export const state = () => ({
     product_name: "",
     product_desc: "",
     product_category: "",
-    product_images: "",
+    product_images: [""],
     status: true,
-    product_stock: 0,
+    product_stock: "",
     is_alfa_product: true,
     alfagift_platform: true,
     product_pickup_availability: true,
@@ -61,7 +63,7 @@ export const mutations = {
   SET_UPDATE_INPUT(state, product) {
     Object.entries(state.inputDetail).forEach((val) => {
       if (val[0] == "product_images") {
-        state.inputDetail[val[0]] = product[val[0]].url[0];
+        state.inputDetail[val[0]] = product[val[0]].url;
       } else {
         state.inputDetail[val[0]] = product[val[0]];
       }
@@ -79,7 +81,18 @@ export const mutations = {
           state.inputPrice[val[0]] = `${year}-${month}-${day}`;
         }
       } else {
-        state.inputPrice[val[0]] = product[val[0]];
+        if (product[val[0]] === "" || product[val[0]] === null) {
+          state.inputPrice[val[0]] = "";
+        } else {
+          state.inputPrice[val[0]] = new Intl.NumberFormat("id-ID", {
+            style: "currency",
+            currency: "IDR",
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 2,
+          })
+            .format(product[val[0]])
+            .slice(3);
+        }
       }
     });
   },
@@ -93,7 +106,7 @@ export const mutations = {
       product_name: "",
       product_desc: "",
       product_category: "",
-      product_images: "",
+      product_images: [""],
       product_stock: "",
       status: true,
       is_alfa_product: true,
@@ -121,6 +134,17 @@ export const mutations = {
     state.products = state.products.map((val) =>
       val.product_id === value.product_id ? value : val
     );
+  },
+  ADD_ROW_IMAGE(state, { section, field, row, value }) {
+    const temp = state.inputDetail[field];
+    temp.push(value);
+    state.inputDetail = { ...state.inputDetail, [field]: temp };
+  },
+  UPDATE_IMAGE(state, { section, field, row, value }) {
+    state[section][field][row] = value;
+  },
+  REMOVE_ROW_IMAGE(state, { section, field, row }) {
+    state[section][field].splice(row, 1);
   },
 };
 
@@ -181,5 +205,31 @@ export const actions = {
   },
   setDataForm({ commit }, product) {
     commit("SET_UPDATE_INPUT", product);
+  },
+  async changeStatus({ commit }, { axiosInstance, id, val }) {
+    try {
+      commit("SET_ISLOADING", true);
+      const res = await axiosInstance.$patch(API_AUTH_URL + "/products/" + id, {
+        status: val ? 1 : 0,
+      });
+      setTimeout(() => {
+        commit("UPDATE_PRODUCT", res);
+      }, 500);
+
+      return true;
+    } catch (err) {
+      return false;
+    } finally {
+      commit("SET_ISLOADING", false);
+    }
+  },
+  async searchProduct({ commit }, { axiosInstance, val }) {
+    try {
+      const res = axiosInstance.$get(API_AUTH_URL + "/products/q=" + val);
+      return true;
+    } catch (err) {
+      return false;
+    } finally {
+    }
   },
 };
