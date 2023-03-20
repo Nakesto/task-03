@@ -20,6 +20,7 @@
               :penuh="true"
               :inputClass="errors.length > 0 ? 'is-invalid' : ''"
               :active="activeInput"
+              :focus="index === 0 ? true : false"
               @onFocus="onFocus"
               @onBlur="onBlur"
               :groupClass="errors.length > 0 ? 'has-error' : ''"
@@ -217,16 +218,44 @@
                 ></b-icon>
               </button>
             </div>
-            <input
-              :id="`images-${index}`"
-              :placeholder="'Your Product Image'"
-              :value="$store.state.products.inputDetail.product_images[index]"
-              @input="updateValue($event.target.value, index)"
-              class="form-control"
-              autocomplete="off"
-              @focus="onFocus(`images-${index}`)"
-              @blur="onBlur"
-            />
+            <div class="d-flex mb-2">
+              <input
+                :id="`images-${index}`"
+                :placeholder="'Your Product Image'"
+                :value="$store.state.products.inputDetail.product_images[index]"
+                @input="updateValue($event.target.value, index)"
+                class="form-control"
+                autocomplete="off"
+                @focus="onFocus(`images-${index}`)"
+                @blur="onBlur"
+              />
+              <button
+                type="button"
+                class="btn btn-icon btn-round"
+                :id="'button-image-' + index"
+                @click="onPreview(index)"
+                :disabled="
+                  $store.state.products.inputDetail.product_images[index] == ''
+                "
+              >
+                <b-spinner
+                  v-if="isLoadingImage && activeImage == index"
+                  label="Spinning"
+                ></b-spinner>
+                <b-icon
+                  v-else
+                  icon="card-image"
+                  style="height: 15px; width: 15px"
+                ></b-icon>
+              </button>
+              <b-tooltip
+                v-if="isMagnifier == false"
+                :target="'button-image-' + index"
+                placement="bottom"
+                triggers="hover"
+                >View Image</b-tooltip
+              >
+            </div>
             <small
               style="font-size: 10px"
               :style="
@@ -236,11 +265,30 @@
               "
               :id="`images-${index}`"
               class="text-danger"
+              v-if="errors.length > 0"
               >{{ errors[0] }}</small
+            >
+            <small
+              style="font-size: 10px"
+              :id="`images-${index}`"
+              class="text-danger"
+              v-if="errorImage[index] !== '' && errors.length == 0"
+              >{{ errorImage[index] }}</small
+            >
+            <small
+              style="font-size: 10px"
+              :id="`images-${index}`"
+              class="text-primary fw-bold"
+              v-if="errorImage[index] == '' && errors.length == 0"
+              >Preview image on the right button</small
             >
           </b-form-group>
         </ValidationProvider>
-        <ValidationProvider class="col-12" rules="required" v-slot="{ errors }">
+        <ValidationProvider
+          class="col-12"
+          rules="required|maxlength:1000"
+          v-slot="{ errors }"
+        >
           <div
             class="form-group col-12 mt-3"
             :class="errors.length > 0 ? 'has-error' : ''"
@@ -280,7 +328,7 @@
             class="btn btn-next btn-danger"
             name="next"
             value="Next"
-            :disabled="invalid"
+            :disabled="invalid || imageError"
           />
           <input
             type="button"
@@ -293,16 +341,80 @@
         <div class="clearfix"></div>
       </div>
     </b-form>
+
+    <fragment v-if="isMagnifier">
+      <div
+        class="mfp-bg mfp-with-zoom mfp-ready"
+        :style="
+          !isLoadingImage && errorImage[activeImage] === ''
+            ? 'visibility: visible'
+            : 'visibility: hidden'
+        "
+        style="z-index: 1200"
+      ></div>
+      <div
+        class="mfp-wrap mfp-gallery mfp-close-btn-in mfp-auto-cursor mfp-with-zoom mfp-ready"
+        tabindex="-1"
+        style="overflow: hidden auto; z-index: 1500"
+        :style="
+          !isLoadingImage && errorImage[activeImage] === ''
+            ? 'visibility: visible'
+            : 'visibility: hidden'
+        "
+      >
+        <div class="mfp-container mfp-s-ready mfp-image-holder">
+          <div class="mfp-content">
+            <div class="mfp-figure">
+              <button
+                title="Close (Esc)"
+                type="button"
+                class="mfp-close"
+                @click="isMagnifier = false"
+              >
+                ×
+              </button>
+              <figure>
+                <img
+                  class="mfp-img"
+                  alt="undefined"
+                  :src="
+                    $store.state.products.inputDetail.product_images[
+                      activeImage
+                    ]
+                  "
+                  @load="onImageLoaded"
+                  @error="onImageError"
+                  style="max-height: 821px"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fragment>
   </ValidationObserver>
 </template>
 
 <script setup>
 import { ValidationProvider, ValidationObserver } from "vee-validate";
-import { computed, getCurrentInstance, ref } from "vue";
+import { computed, getCurrentInstance, onMounted, onUnmounted, ref } from "vue";
 import Editor from "./base/Editor.vue";
 const $root = getCurrentInstance().proxy.$root;
 const $store = $root.$store;
+const props = defineProps({
+  type: {
+    type: String,
+    required: true,
+  },
+});
+const myTooltipRef = ref(null);
 const activeInput = ref("");
+const isMagnifier = ref(false);
+const activeImage = ref(0);
+const errorImage = ref([""]);
+const isImageValidate = ref([props.type === "Create" ? false : true]);
+const isLoadingImage = ref(false);
+const isImageLoaded = ref(false);
 const emit = defineEmits(["onSection"]);
 const product_id = computed({
   get() {
@@ -315,6 +427,17 @@ const product_id = computed({
       value: val,
     });
   },
+});
+const imageError = computed(() => {
+  let flag = false;
+
+  isImageValidate.value.forEach((val) => {
+    if (!val) {
+      flag = true;
+    }
+  });
+
+  return flag;
 });
 const product_sku = computed({
   get() {
@@ -393,6 +516,39 @@ const imageRow = computed(
   () => $store.state.products.inputDetail.product_images
 );
 
+const onPreview = (index) => {
+  activeImage.value = index;
+  isMagnifier.value = true;
+  isLoadingImage.value = true;
+  const temp = errorImage.value.slice();
+  temp[index] = "";
+  errorImage.value = temp;
+};
+
+const onImageLoaded = () => {
+  isLoadingImage.value = false;
+  isImageLoaded.value = true;
+  const temp = errorImage.value.slice();
+  const temp2 = isImageValidate.value.slice();
+  temp[activeImage.value] = "";
+  errorImage.value = temp;
+  temp2[activeImage.value] = true;
+  isImageValidate.value = temp2;
+  console.log("loaded");
+};
+
+const onImageError = () => {
+  isLoadingImage.value = false;
+  isImageLoaded.value = false;
+  isMagnifier.value = false;
+  const temp = errorImage.value.slice();
+  const temp2 = isImageValidate.value.slice();
+  temp[activeImage.value] = "Image url can't be opened";
+  errorImage.value = temp;
+  temp2[activeImage.value] = false;
+  isImageValidate.value = temp2;
+};
+
 const addInputImage = () => {
   $store.commit("products/ADD_ROW_IMAGE", {
     section: "inputDetail",
@@ -400,9 +556,17 @@ const addInputImage = () => {
     row: imageRow.value.length - 1,
     value: "",
   });
+  errorImage.value.push("");
+  isImageValidate.value.push(false);
 };
 
 const updateValue = (val, index) => {
+  const temp = errorImage.value.slice();
+  const temp2 = isImageValidate.value.slice();
+  temp[index] = "";
+  errorImage.value = temp;
+  temp2[index] = false;
+  isImageValidate.value = temp2;
   $store.commit("products/UPDATE_IMAGE", {
     section: "inputDetail",
     field: "product_images",
@@ -417,6 +581,7 @@ const removeInputImage = (index) => {
     field: "product_images",
     row: index,
   });
+  errorImage.value.splice(index, 1);
 };
 const status = computed(() => $store.state.products.inputDetail.status);
 const is_alfa_product = computed(
@@ -438,6 +603,7 @@ const fields = ref([
     label: "ID Product",
     name: "product_id",
     rules: "required|numeric",
+    focus: true,
   },
   {
     ipt: product_sku,
@@ -495,4 +661,18 @@ const onSubmit = (invalid) => {
     });
   }
 };
+
+const onEscapeKeyUp = (event) => {
+  if (event.which === 27 && isMagnifier.value) {
+    isMagnifier.value = false;
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("keyup", onEscapeKeyUp);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("keyup", onEscapeKeyUp);
+});
 </script>

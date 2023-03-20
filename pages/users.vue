@@ -37,6 +37,8 @@
                     class="form-control"
                     aria-label="Text input with dropdown button"
                     v-model="search"
+                    placeholder="Search Users"
+                    v-auto-focus
                   />
                   <div class="input-group-append">
                     <button
@@ -85,43 +87,57 @@
                 :table-props="{ striped: true, responsive: 'sm' }"
               ></b-skeleton-table>
               <fragment v-else>
-                <b-table
-                  striped
-                  responsive="sm"
-                  hover
-                  :items="items"
-                  :fields="fields"
-                  :per-page="perPage"
-                  :current-page="currentPage"
-                  small
-                >
-                  <template #cell(actions)="row">
-                    <IconButton
-                      icon="pencil-square"
-                      type="button"
-                      class-button="btn btn-icon btn-warning"
-                      title="Edit User"
-                      :data="row.index"
-                      tooltip
-                      @buttonClick="editUser(row.item.id)"
+                <fragment v-if="items.length > 0">
+                  <b-table
+                    striped
+                    responsive="sm"
+                    hover
+                    :items="items"
+                    :fields="fields"
+                    :per-page="perPage"
+                    :current-page="currentPage"
+                    small
+                  >
+                    <template #cell(actions)="row">
+                      <IconButton
+                        icon="pencil-square"
+                        type="button"
+                        class-button="btn btn-icon btn-warning"
+                        title="Edit User"
+                        :data="row.index"
+                        tooltip
+                        @buttonClick="editUser(row.item.id)"
+                      />
+                      <IconButton
+                        title="Delete User"
+                        icon="x-circle-fill"
+                        type="button"
+                        class-button="btn btn-icon btn-danger"
+                        :data="row.index"
+                        tooltip
+                        @buttonClick="delUser(row.item.id)"
+                      />
+                    </template>
+                  </b-table>
+                  <b-pagination
+                    v-model="currentPage"
+                    :total-rows="rows"
+                    :per-page="perPage"
+                    aria-controls="my-table"
+                  ></b-pagination>
+                </fragment>
+                <fragment v-else>
+                  <div
+                    class="d-flex flex-column align-items-center justify-content-center"
+                  >
+                    <img
+                      src="https://cdni.iconscout.com/illustration/premium/thumb/not-found-4064375-3363936.png"
+                      alt="not found"
+                      style="width: 300px; height: 300px"
                     />
-                    <IconButton
-                      title="Delete User"
-                      icon="x-circle-fill"
-                      type="button"
-                      class-button="btn btn-icon btn-danger"
-                      :data="row.index"
-                      tooltip
-                      @buttonClick="delUser(row.item.id)"
-                    />
-                  </template>
-                </b-table>
-                <b-pagination
-                  v-model="currentPage"
-                  :total-rows="rows"
-                  :per-page="perPage"
-                  aria-controls="my-table"
-                ></b-pagination>
+                    <p class="text-muted text-center fw-bold">Belum ada user</p>
+                  </div>
+                </fragment>
               </fragment>
             </div>
           </div>
@@ -179,6 +195,7 @@ export default {
       },
     ],
   },
+  auth: true,
 };
 </script>
 <script setup>
@@ -227,7 +244,11 @@ const isLoading = computed(() => $store.getters["regis/getIsLoading"]);
 const data = computed(() => $store.getters["regis/getUsers"]);
 const items = computed(() => {
   if (search.value === "") {
-    return data.value;
+    if (data.value) {
+      return data.value;
+    }
+
+    return [];
   }
 
   if (activeFilter.value === "") {

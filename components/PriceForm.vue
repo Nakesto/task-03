@@ -2,12 +2,51 @@
   <div class="tab-pane active" id="about">
     <ValidationObserver v-slot="{ invalid, validate }">
       <b-form
-        class="row justify-content-md-center"
+        class="row justify-content-center"
         @submit.prevent="emit('submit')"
       >
         <div class="col-md-12">
           <h4 class="info-text">Create Your Discount & Price</h4>
         </div>
+        <ValidationProvider
+          class="col-12 col-sm-6 col-md-4"
+          :rules="field.rules"
+          v-slot="{ errors }"
+          v-for="(field, index) in fields"
+          :key="index"
+        >
+          <div class="form-group">
+            <label :for="field.name">{{ field.label }}</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Rp.</span>
+              </div>
+              <input
+                v-if="index === 0"
+                type="text"
+                :name="field.name"
+                v-model="field.ipt"
+                class="form-control"
+                aria-label="Amount (to the nearest dollar)"
+                v-auto-focus
+              />
+              <input
+                v-else
+                type="text"
+                :name="field.name"
+                v-model="field.ipt"
+                class="form-control"
+                aria-label="Amount (to the nearest dollar)"
+              />
+            </div>
+            <small
+              style="font-size: 10px"
+              id="to-datepicker"
+              class="text-danger"
+              >{{ errors[0] }}</small
+            >
+          </div>
+        </ValidationProvider>
         <ValidationProvider
           class="col-md-6"
           :rules="
@@ -77,35 +116,6 @@
             >{{ errors[0] }}</small
           >
         </ValidationProvider>
-        <ValidationProvider
-          class="col-md-6"
-          :rules="field.rules"
-          v-slot="{ errors }"
-          v-for="(field, index) in fields"
-          :key="index"
-        >
-          <div class="form-group">
-            <label :for="field.name">{{ field.label }}</label>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Rp.</span>
-              </div>
-              <input
-                type="text"
-                :name="field.name"
-                v-model="field.ipt"
-                class="form-control"
-                aria-label="Amount (to the nearest dollar)"
-              />
-            </div>
-            <small
-              style="font-size: 10px"
-              id="to-datepicker"
-              class="text-danger"
-              >{{ errors[0] }}</small
-            >
-          </div>
-        </ValidationProvider>
         <div class="wizard-action col-12 mt-3">
           <div class="pull-left">
             <input
@@ -141,13 +151,22 @@
 
 <script setup>
 import { ValidationObserver, ValidationProvider } from "vee-validate";
-import { computed, getCurrentInstance, ref } from "vue";
+import { computed, getCurrentInstance, ref, watch } from "vue";
 
 const $root = getCurrentInstance().proxy.$root;
 const $store = $root.$store;
 const props = defineProps(["type"]);
 const emit = defineEmits(["onSection", "submit"]);
 const minDates = computed(() => {
+  if (
+    product_special_price_from.value !== "" ||
+    product_special_price_from.value !== null
+  ) {
+    const currentDate = new Date(product_special_price_from.value);
+    currentDate.setDate(currentDate.getDate());
+    return currentDate;
+  }
+
   return new Date();
 });
 const maxDates = computed(() => {
@@ -247,7 +266,7 @@ const fields = ref([
     ipt: product_special_price,
     label: "Product Special Price",
     name: "product_special_price",
-    rules: "price",
+    rules: `price`,
   },
   {
     ipt: product_alfagift_price,
@@ -256,6 +275,28 @@ const fields = ref([
     rules: "required|price",
   },
 ]);
+
+watch(product_special_price, (val) => {
+  if (val === "") {
+    $store.commit("products/SET_INPUT", {
+      section: "inputPrice",
+      field: "product_special_price_to",
+      value: val,
+    });
+
+    $store.commit("products/SET_INPUT", {
+      section: "inputPrice",
+      field: "product_special_price_from",
+      value: val,
+    });
+  }
+});
+
+watch(price, (val) => {
+  if (price.val !== "") {
+    fields.value[1].rules = `price|comparePrice:${val}`;
+  }
+});
 </script>
 
 <style lang="scss" scoped></style>

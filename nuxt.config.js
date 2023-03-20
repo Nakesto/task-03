@@ -113,6 +113,7 @@ export default {
     "~/plugins/axios-interceptor.js",
     "~/plugins/vee-validate.js",
     "~/plugins/filters.js",
+    "~/plugins/autoFocus.js",
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -127,6 +128,7 @@ export default {
     "bootstrap-vue/nuxt",
     "@nuxtjs/router",
     "@nuxtjs/axios",
+    "@nuxtjs/auth-next",
   ],
 
   router: {
@@ -137,5 +139,31 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: ["vee-validate/dist/rules"],
+  },
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          required: true,
+          type: "",
+          property: "accessToken",
+        },
+        user: {
+          property: "user",
+        },
+        endpoints: {
+          login: { url: "http://localhost:3200/login", method: "post" },
+          user: false,
+          logout: false,
+        },
+      },
+    },
+    redirect: {
+      login: "/login",
+      logout: "/login",
+      home: "/",
+      callback: false,
+    },
+    rewriteRedirects: true,
   },
 };

@@ -21,7 +21,7 @@
             <h3 class="text-center">Sign In To Admin</h3>
             <b-form @submit.prevent="onSubmit" class="login-form">
               <div class="form-group">
-                <label for="email" class="placeholder"><b>Username</b></label>
+                <label for="email" class="placeholder"><b>Email</b></label>
                 <input
                   id="email"
                   name="email"
@@ -29,6 +29,7 @@
                   class="form-control"
                   required
                   v-model="email"
+                  v-auto-focus
                 />
               </div>
               <div class="form-group">
@@ -66,6 +67,7 @@
                 <button
                   type="submit"
                   class="btn btn-secondary col-md-5 float-right mt-3 mt-sm-0 fw-bold"
+                  :disabled="isErr"
                 >
                   Sign In
                 </button>
@@ -122,6 +124,7 @@ export default {
       },
     ],
   },
+  auth: "guest",
 };
 </script>
 <script setup>
@@ -130,6 +133,7 @@ import Modal from "../components/base/Modal.vue";
 // import { validateEmail, validatePass } from "../utils/validation";
 
 const $root = getCurrentInstance().proxy.$root;
+const $auth = $root.$auth;
 const $store = $root.$store;
 const $axios = $root.$axios;
 const email = ref("");
@@ -149,13 +153,39 @@ const isError = ref(false);
 const router = getCurrentInstance().proxy.$router;
 
 const onSubmit = async () => {
-  const completed = await $store.dispatch("regis/loginUser", {
-    axiosInstance: $axios,
-    value: {
-      email: email.value,
-      password: pass.value,
-    },
-  });
+  // const completed = await $store.dispatch("regis/loginUser", {
+  //   axiosInstance: $axios,
+  //   value: {
+  //     email: email.value,
+  //     password: pass.value,
+  //   },
+  // });
+
+  try {
+    $store.commit("regis/SET_ISLOADING", true);
+    const res = await $auth.loginWith("local", {
+      data: {
+        email: email.value,
+        password: pass.value,
+      },
+    });
+    console.log(res);
+
+    if (res.status === 200) {
+      localStorage.setItem("data", JSON.stringify(res.data.user));
+      Object.entries(res.data.user).forEach((val) => {
+        $store.commit("regis/SET_DATA", { field: val[0], value: val[1] });
+      });
+    }
+    isError.value = false;
+  } catch (err) {
+    isError.value = true;
+    $store.commit("regis/SET_ERR_LOGIN_MESSAGE", err.data);
+  } finally {
+    $store.commit("regis/SET_ISLOADING", false);
+  }
+
+  // router.push({ name: "index" });
 
   // const res = await auth.loginWith("local", {
   //   data: {
@@ -177,12 +207,12 @@ const onSubmit = async () => {
 
   //   router.push({ name: "users" });
 
-  if (completed) {
-    isError.value = false;
-    router.push({ name: "users" });
-  } else {
-    isError.value = true;
-  }
+  // if (completed) {
+  //   isError.value = false;
+  //   router.push({ name: "index" });
+  // } else {
+  //   isError.value = true;
+  // }
 };
 
 const hideModal = () => {

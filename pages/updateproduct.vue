@@ -70,6 +70,7 @@
               <DetailForm
                 v-if="active[0]?.name === 'Detail'"
                 @onSection="onSection"
+                type="Update"
               />
               <PriceForm
                 v-if="active[0]?.name === 'Disc & Price'"
@@ -117,6 +118,48 @@
         </div>
       </template>
     </Modal>
+    <Modal
+      v-if="isModal"
+      :title="isSuccess ? 'Update Product Success' : 'Update product Failed'"
+      :msg="
+        isSuccess ? 'Click ok to continue' : 'Error when update the products'
+      "
+    >
+      <template #icon>
+        <div v-if="isSuccess" class="swal-icon swal-icon--success">
+          <span
+            class="swal-icon--success__line swal-icon--success__line--long"
+          ></span>
+          <span
+            class="swal-icon--success__line swal-icon--success__line--tip"
+          ></span>
+
+          <div class="swal-icon--success__ring"></div>
+          <div class="swal-icon--success__hide-corners"></div>
+        </div>
+        <div v-else class="swal-icon swal-icon--error">
+          <div class="swal-icon--error__x-mark">
+            <span
+              class="swal-icon--error__line swal-icon--error__line--left"
+            ></span>
+            <span
+              class="swal-icon--error__line swal-icon--error__line--right"
+            ></span>
+          </div>
+        </div>
+      </template>
+      <template #footer>
+        <div class="swal-button-container">
+          <button
+            class="swal-button swal-button--confirm btn btn-black fw-bold"
+            style="cursor: pointer"
+            @click="hideModal"
+          >
+            {{ isSuccess ? "OK" : "Close" }}
+          </button>
+        </div>
+      </template>
+    </Modal>
   </div>
 </template>
 <script>
@@ -129,6 +172,7 @@ export default {
       },
     ],
   },
+  auth: true,
 };
 </script>
 <script setup>
@@ -148,6 +192,8 @@ const $store = $root.$store;
 const $axios = $root.$axios;
 const router = getCurrentInstance().proxy.$router;
 const isUpdate = ref(false);
+const isModal = ref(false);
+const isSuccess = ref(false);
 const inputDetail = computed(() => $store.getters["products/getInputDetail"]);
 const inputPrice = computed(() => $store.getters["products/getInputPrice"]);
 const isLoading = computed(() => $store.getters["products/getIsLoading"]);
@@ -235,13 +281,29 @@ const onSubmit = async () => {
     },
   });
   if (completed) {
-    router.push({ name: "products" });
+    isModal.value = true;
+    isSuccess.value = true;
   } else {
+    isModal.value = true;
+    isSuccess.value = false;
   }
+  isUpdate.value = false;
 };
 
 const openModal = () => {
   isUpdate.value = true;
+};
+
+const hideModal = () => {
+  if (isSuccess.value) {
+    router.push({ name: "products" });
+  }
+
+  isModal.value = false;
+};
+
+const onSuccess = () => {
+  router.push({ name: "products" });
 };
 
 onMounted(() => {

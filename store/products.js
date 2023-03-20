@@ -2,7 +2,7 @@ import { API_URL, API_AUTH_URL } from "./regis";
 
 export const state = () => ({
   products: [],
-  searchProducts: [],
+  // searchProducts: [],
   isLoading: false,
   searchLoading: false,
   inputDetail: {
@@ -134,6 +134,12 @@ export const mutations = {
     state.products = state.products.map((val) =>
       val.product_id === value.product_id ? value : val
     );
+
+    // if (state.searchProducts.length > 0) {
+    //   state.searchProducts = state.searchProducts.map((val) =>
+    //     val.product_id === value.product_id ? value : val
+    //   );
+    // }
   },
   ADD_ROW_IMAGE(state, { section, field, row, value }) {
     const temp = state.inputDetail[field];
@@ -154,7 +160,9 @@ export const actions = {
       commit("SET_ISLOADING", true);
       const res = await axiosInstance.$get(API_AUTH_URL + "/products");
       commit("SET_PRODUCTS", res);
+      return true;
     } catch (err) {
+      return false;
       console.log(err);
     } finally {
       commit("SET_ISLOADING", false);
@@ -176,7 +184,7 @@ export const actions = {
   async updateProducts({ commit }, { axiosInstance, value }) {
     try {
       commit("SET_ISLOADING", true);
-      const res = await axiosInstance.$put(
+      const res = await axiosInstance.$patch(
         API_AUTH_URL + "/products/" + value.id,
         value
       );
@@ -191,7 +199,6 @@ export const actions = {
   },
   async deleteProducts({ commit }, { axiosInstance, value }) {
     try {
-      commit("SET_ISLOADING", true);
       const res = await axiosInstance.$delete(
         API_AUTH_URL + "/products/" + value
       );
@@ -199,8 +206,6 @@ export const actions = {
       return true;
     } catch (err) {
       return false;
-    } finally {
-      commit("SET_ISLOADING", false);
     }
   },
   setDataForm({ commit }, product) {
@@ -208,7 +213,6 @@ export const actions = {
   },
   async changeStatus({ commit }, { axiosInstance, id, val }) {
     try {
-      commit("SET_ISLOADING", true);
       const res = await axiosInstance.$patch(API_AUTH_URL + "/products/" + id, {
         status: val ? 1 : 0,
       });
@@ -219,17 +223,16 @@ export const actions = {
       return true;
     } catch (err) {
       return false;
-    } finally {
-      commit("SET_ISLOADING", false);
     }
   },
   async searchProduct({ commit }, { axiosInstance, val }) {
     try {
-      const res = axiosInstance.$get(API_AUTH_URL + "/products/q=" + val);
+      const res = await axiosInstance.$get(API_AUTH_URL + "/products?q=" + val);
+      commit("SET_PRODUCTS", res);
       return true;
     } catch (err) {
+      console.log(err);
       return false;
-    } finally {
     }
   },
 };

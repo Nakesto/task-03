@@ -6,14 +6,14 @@
           class="nav nav-tabs nav-line nav-color-secondary d-flex align-items-center justify-contents-center w-100"
         >
           <a
-            @click="filter = 1"
+            @click="changeFilter(1)"
             class="nav-link active show"
             data-toggle="tab"
             href="#tab1"
             >Active Products
           </a>
           <a
-            @click="filter = 0"
+            @click="changeFilter(0)"
             class="nav-link mr-5"
             data-toggle="tab"
             href="#tab2"
@@ -34,8 +34,9 @@
             <input
               type="text"
               class="form-control"
-              placeholder="Search for..."
+              placeholder="Search Products"
               v-model="search"
+              v-auto-focus
             />
             <span class="input-icon-addon">
               <i class="fa fa-search"></i>
@@ -43,7 +44,33 @@
           </div>
         </div>
       </div>
-      <div class="row row-projects" v-if="isLoading && data?.length === 0">
+      <div
+        class="d-flex flex-column align-items-center justify-content-center"
+        v-if="!isLoading && paginatedItems.length === 0 && search !== ''"
+      >
+        <img
+          src="https://cdni.iconscout.com/illustration/premium/thumb/not-found-4064375-3363936.png"
+          alt="not found"
+          style="width: 300px; height: 300px"
+        />
+        <p class="text-muted text-center fw-bold">
+          Product dengan keyword '{{ search }}' tidak ditemukan
+        </p>
+      </div>
+      <div
+        class="d-flex flex-column align-items-center justify-content-center"
+        v-if="!isLoading && paginatedItems.length === 0 && search === ''"
+      >
+        <img
+          src="https://cdni.iconscout.com/illustration/premium/thumb/not-found-4064375-3363936.png"
+          alt="not found"
+          style="width: 300px; height: 300px"
+        />
+        <p class="text-muted text-center fw-bold">
+          Belum ada product, silahkan buat product
+        </p>
+      </div>
+      <div class="row row-projects" v-if="isLoading">
         <div
           v-for="val in [0, 1, 2, 3]"
           class="col-sm-6 col-lg-4 col-xl-3"
@@ -95,8 +122,9 @@
         </div>
       </div>
       <b-pagination
+        v-if="!isLoading && paginatedItems.length > 0"
         v-model="currentPage"
-        :total-rows="products.length"
+        :total-rows="filterProducts.length"
         :per-page="perPage"
       />
     </div>
@@ -120,7 +148,7 @@
       <template #content>
         <div class="d-flex justify-content-center">
           <b-overlay
-            :show="isLoading"
+            :show="deleteLoading"
             rounded
             opacity="0.6"
             spinner-small
@@ -161,11 +189,11 @@ export default {
       },
     ],
   },
-  components: { Modal, Alert },
+  auth: true,
 };
 </script>
 <script setup>
-import { computed, getCurrentInstance, onMounted, ref } from "vue";
+import { computed, getCurrentInstance, onMounted, ref, watch } from "vue";
 import Alert from "../components/base/Alert.vue";
 import Card from "../components/base/Card.vue";
 import Modal from "../components/base/Modal.vue";
@@ -181,30 +209,27 @@ const isError = ref(false);
 const filter = ref(1);
 const currentPage = ref(1);
 const perPage = ref(8);
+let searchTimeout;
 const paginatedItems = computed(() => {
   const start = (currentPage.value - 1) * perPage.value;
   const end = start + perPage.value;
-  return products.value.slice(start, end);
+
+  return filterProducts.value.slice(start, end);
 });
 const data = computed(() => $store.getters["products/getProducts"]);
 
-const products = computed(() => {
+const filterProducts = computed(() => {
   if (data.value !== undefined) {
-    if (search.value !== "") {
-      return data.value.filter(
-        (val) =>
-          val.status == filter.value &&
-          val.product_name.toUpperCase().includes(search.value.toUpperCase())
-      );
-    }
-    return data.value.filter((val) => val.status == filter.value);
+    return data.value.filter((val) => val.status == filter.value).reverse();
   } else {
     return [];
   }
 });
-const isLoading = computed(() => $store.getters["products/getIsLoading"]);
 
+const isLoading = computed(() => $store.getters["products/getIsLoading"]);
+const deleteLoading = ref(false);
 const deleteProduct = async () => {
+  deleteLoading.value = true;
   const completed = await $store.dispatch("products/deleteProducts", {
     axiosInstance: $axios,
     value: activeId.value,
@@ -222,6 +247,7 @@ const deleteProduct = async () => {
     }, 4000);
   }
 
+  deleteLoading.value = false;
   isDelete.value = false;
 };
 
@@ -229,6 +255,24 @@ const showModal = (id) => {
   activeId.value = id;
   isDelete.value = true;
 };
+
+const changeFilter = (val) => {
+  filter.value = val;
+  currentPage.value = 1;
+};
+
+watch(search, (val) => {
+  clearTimeout(searchTimeout);
+  currentPage.value = 1;
+  $store.commit("products/SET_ISLOADING", true);
+  searchTimeout = setTimeout(async () => {
+    const completed = await $store.dispatch("products/searchProduct", {
+      axiosInstance: $axios,
+      val: val,
+    });
+    $store.commit("products/SET_ISLOADING", false);
+  }, 1000);
+});
 
 onMounted(() => {
   $store.dispatch("products/fetchProducts", $axios);

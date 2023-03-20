@@ -2,6 +2,21 @@
   <b-form-group :class="[`mb-0 py-2 col-12 ${groupClass}`, {'col-md-6' : !penuh }]">
     <label :for="name" :class="labelClass">{{ label }}:</label>
     <input
+    v-if="focus"
+      :id="name"
+      :placeholder="'Your ' + label"
+      :type="type"
+      :value="value"
+      @input="updateValue($event.target.value)"
+      class="form-control"
+      :class="inputClass"
+      autocomplete="off"
+      @focus="emit('onFocus', name)"
+      @blur="emit('onBlur')"
+      v-auto-focus
+    ></input>
+        <input
+    v-else
       :id="name"
       :placeholder="'Your ' + label"
       :type="type"
@@ -53,6 +68,9 @@ const props = defineProps({
   },
   errMsg: {
     type: String
+  },
+  focus: {
+    type: Boolean
   }
 })
 const emit = defineEmits(['input', 'onFocus', 'onBlur'])

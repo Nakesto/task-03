@@ -50,12 +50,12 @@
             {{ special_price == "" ? price : special_price | toRp }}
           </h3>
         </div>
-        <span
+        <!-- <span
           class="badge"
           :class="isActive ? 'badge-success' : 'badge-danger'"
           style="height: fit-content"
           >{{ isActive ? "Active" : "Inactive" }}</span
-        >
+        > -->
       </div>
       <p class="text-muted fw-bold" style="font-size: 12px">
         Stock: {{ stock }}

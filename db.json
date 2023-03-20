@@ -81,44 +81,44 @@
       "id": 20
     },
     {
-      "email": "sadds@gmail.com",
-      "password": "$2a$10$bCIK5e09KtzBJ5WDuIqanuPLFVAi5c8m69..15qqJUFtZ6k/hRZhy",
-      "firstName": "kskkaksak",
-      "lastName": "adkqpmks",
-      "phone": "012882188218",
-      "id": 21
+      "email": "tony@gmail.com",
+      "password": "$2a$10$m7OM1vC7436pwTLwP/9e1eKDqHJJ4ZJbMamhJdmHAgem53KIT0J.i",
+      "firstName": "tony",
+      "lastName": "stark",
+      "phone": "08283929302",
+      "id": 22
     }
   ],
   "products": [
     {
-      "id": 56283,
       "product_id": 56283,
       "product_sku": "A06790303619",
       "product_name": "FIESTA Ready Meal Chicken Mushroom Noodle 300 g",
       "product_desc": "FIESTA Ready Meal Chicken Mushroom Noodle 300 g adalah inovasi dari sajian makanan instan siap saji terbaru yang dipersembahkan oleh FIESTA. FIESTA Ready Meal kini telah meluncurkan lini produk terbarunya, yakni dengan menghadirkan ready meal dengan varian mie dengan daging ayam dan jamur. Dibuat dengan resep asli untuk dapat menyajikan sajian mie dengan dilengkapi daging ayam serta jamur. Kini telah tersedia dalam kemasan 300 gram yang sangat praktis dan mudah penyajiannya, karena sudah tersedia di dalam mangkuk dan hanya tinggal dipanaskan dengan microwave. Hadirkan kenikmatan FIESTA Ready Meal Chicken Mushroom Noodle 300 g, sehingga ga perlu lagi pusing pas lapar.",
-      "status": 1,
-      "is_alfa_product": 1,
-      "price": 25000,
-      "product_special_price": 23500,
-      "product_special_price_to": "2023-04-09",
-      "product_special_price_from": "2023-04-15",
-      "product_alfagift_price": 24000,
+      "product_category": "Makanan",
       "product_images": {
         "type": "Base Image",
         "url": [
           "https://cs1.alfacart.com/product/1/1_A7650250002165_20210302082330098_base.jpg"
         ]
       },
+      "product_stock": 20,
+      "status": 1,
+      "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 1,
       "product_is_groceries": 1,
+      "id": 56283,
+      "price": 25000,
+      "product_special_price": 23500,
+      "product_special_price_to": "2023-04-09T00:00:00.000Z",
+      "product_special_price_from": "2023-04-15T00:00:00.000Z",
+      "product_alfagift_price": 24000,
       "product_visibility_pdp": 296,
-      "product_category": "Makanan",
       "product_sub_category": null,
-      "product_stock": 20
+      "sales_quantity": 10
     },
     {
-      "id": 56284,
       "product_id": 56284,
       "product_sku": "A06790303620",
       "product_name": "FIESTA Ready Meal Rice with Chicken Katsu Donburi 320 g",
@@ -130,49 +130,51 @@
           "https://cs1.alfacart.com/product/1/1_A7650230002165_20210302080542303_base.jpg"
         ]
       },
-      "status": 0,
       "product_stock": 20,
+      "status": 1,
       "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 1,
       "product_is_groceries": 1,
+      "id": 56284,
       "price": 25000,
       "product_special_price": 23500,
       "product_special_price_to": "2023-04-09T00:00:00.000Z",
       "product_special_price_from": "2023-04-15T00:00:00.000Z",
       "product_alfagift_price": 24000,
       "product_visibility_pdp": 296,
-      "product_sub_category": null
+      "product_sub_category": null,
+      "sales_quantity": 5
     },
     {
-      "id": 56285,
       "product_id": 56285,
       "product_sku": "A06790303621",
       "product_name": "FIESTA Ready Meal Rice with Beef Yakiniku 320 g",
       "product_desc": "FIESTA Ready Meal Rice with Beef Yakiniku 320 g adalah inovasi dari sajian makanan instan siap saji terbaru yang dipersembahkan oleh FIESTA. FIESTA Ready Meal kini telah meluncurkan lini produk terbarunya, yakni dengan menghadirkan ready meal dengan varian nasi dengan daging sapi yang dimasak dengan bumbu khas yakiniku. Dibuat dengan resep asli Jepang untuk dapat menyajikan sajian daging sapi yang dimasak dengan bumbu yakiniku dan juga disajikan dengan nasi. Kini telah tersedia dalam kemasan 320 gram yang sangat praktis dan mudah penyajiannya, karena sudah tersedia mangkuk dan hanya tinggal dipanaskan dengan microwave. Bersama FIESTA Ready Meal Rice with Beef Yakiniku 320 g, ga perlu lagi pusing pas lapar.",
-      "status": 0,
-      "is_alfa_product": 1,
-      "price": 25000,
-      "product_special_price": 23500,
-      "product_special_price_to": "2023-04-09",
-      "product_special_price_from": "2023-04-15",
-      "product_alfagift_price": 24000,
+      "product_category": "Makanan",
       "product_images": {
         "type": "Base Image",
         "url": [
           "https://cs1.alfacart.com/product/1/1_A7650210002165_20210301233057268_base.jpg"
         ]
       },
+      "product_stock": 20,
+      "status": 0,
+      "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 1,
       "product_is_groceries": 1,
+      "id": 56285,
+      "price": 25000,
+      "product_special_price": 23500,
+      "product_special_price_to": "2023-04-09T00:00:00.000Z",
+      "product_special_price_from": "2023-04-15T00:00:00.000Z",
+      "product_alfagift_price": 24000,
       "product_visibility_pdp": 296,
-      "product_category": "Makanan",
       "product_sub_category": null,
-      "product_stock": 20
+      "sales_quantity": 20
     },
     {
-      "id": 56286,
       "product_id": 56286,
       "product_sku": "A06790303622",
       "product_name": "FIESTA Ready Meal Chicken Barbeque Noodle 300 g",
@@ -184,22 +186,23 @@
           "https://cs1.alfacart.com/product/1/1_A7650260002165_20210302083426395_base.jpg"
         ]
       },
-      "status": 1,
       "product_stock": 20,
+      "status": 0,
       "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 1,
       "product_is_groceries": 1,
+      "id": 56286,
       "price": 25000,
       "product_special_price": 23500,
       "product_special_price_to": "2023-04-09T00:00:00.000Z",
       "product_special_price_from": "2023-04-15T00:00:00.000Z",
       "product_alfagift_price": 24000,
       "product_visibility_pdp": 296,
-      "product_sub_category": null
+      "product_sub_category": null,
+      "sales_quantity": 75
     },
     {
-      "id": 56287,
       "product_id": 56287,
       "product_sku": "A06790303623",
       "product_name": "FIESTA Ready Meal Rice with Karage and Sweet Sour Sauce 320 g",
@@ -211,73 +214,77 @@
           "https://cs1.alfacart.com/product/1/1_A7650220002165_20220104144406537_base.jpg"
         ]
       },
-      "status": 1,
       "product_stock": 20,
+      "status": 1,
       "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 1,
       "product_is_groceries": 1,
+      "id": 56287,
       "price": 25000,
       "product_special_price": 23500,
       "product_special_price_to": "2023-04-09T00:00:00.000Z",
       "product_special_price_from": "2023-04-15T00:00:00.000Z",
       "product_alfagift_price": 24000,
       "product_visibility_pdp": 296,
-      "product_sub_category": null
+      "product_sub_category": null,
+      "sales_quantity": 60
     },
     {
-      "id": 56288,
       "product_id": 56288,
       "product_sku": "A06790303624",
       "product_name": "FIESTA Ready Meal Rice with Beef Black Pepper 320 g",
       "product_desc": "FIESTA Ready Meal Rice with Beef Black Pepper 320 g adalah inovasi dari sajian makanan instan siap saji terbaru yang dipersembahkan oleh FIESTA. FIESTA Ready Meal kini telah meluncurkan lini produk terbarunya, yakni dengan menghadirkan ready meal dengan varian nasi dengan daging sapi yang dimasak dengan bumbu lada hitam. Dibuat dengan resep asli untuk dapat menyajikan sajian daging sapi dengan dilumuri saus lada hitam segar yang juga disajikan dengan nasi. Kini telah tersedia dalam kemasan 320 gram yang sangat praktis dan mudah penyajiannya, karena sudah tersedia mangkuk dan hanya tinggal dipanaskan dengan microwave. Bersama FIESTA Ready Meal Rice with Beef Black Pepper 320 g, ga perlu lagi pusing pas lapar.",
-      "status": 1,
-      "is_alfa_product": 1,
-      "price": 25000,
-      "product_special_price": 23500,
-      "product_special_price_to": "2023-04-09",
-      "product_special_price_from": "2023-04-15",
-      "product_alfagift_price": 24000,
+      "product_category": "Makanan",
       "product_images": {
         "type": "Base Image",
         "url": [
           "https://cs1.alfacart.com/product/1/1_A7650190002165_20220104145106889_base.jpg"
         ]
       },
+      "product_stock": 20,
+      "status": 1,
+      "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 1,
       "product_is_groceries": 1,
+      "id": 56288,
+      "price": 25000,
+      "product_special_price": 23500,
+      "product_special_price_to": "2023-04-09T00:00:00.000Z",
+      "product_special_price_from": "2023-04-15T00:00:00.000Z",
+      "product_alfagift_price": 24000,
       "product_visibility_pdp": 296,
-      "product_category": "Makanan",
       "product_sub_category": null,
-      "product_stock": 20
+      "sales_quantity": 90
     },
     {
-      "id": 56289,
       "product_id": 56289,
       "product_sku": "A06790303625",
       "product_name": "FIESTA Ready Meal Chicken Teriyaki with Rice 320 g",
       "product_desc": "FIESTA Ready Meal Chicken Teriyaki with Rice 320 g adalah inovasi dari sajian makanan instan siap saji terbaru yang dipersembahkan oleh FIESTA. FIESTA Ready Meal kini telah meluncurkan lini produk terbarunya, yakni dengan menghadirkan ready meal dengan varian nasi dengan chicken teriyaki. Dibuat dengan resep asli dari Jepang untuk dapat menyajikan ayam yang dilumuri dengan saus teriyaki dan dilengkapi sayuran segar yang juga disajikan dengan nasi. Kini telah tersedia dalam kemasan 320 gram yang sangat praktis dan mudah penyajiannya, karena sudah tersedia mangkuk dan hanya tinggal dipanaskan dengan microwave. Bersama FIESTA Ready Meal Chicken Teriyaki with Rice 320 g, ga perlu lagi pusing pas lapar.",
-      "status": 0,
-      "is_alfa_product": 1,
-      "price": 25000,
-      "product_special_price": 23500,
-      "product_special_price_to": "2023-04-09",
-      "product_special_price_from": "2023-04-15",
-      "product_alfagift_price": 24000,
+      "product_category": "Makanan",
       "product_images": {
         "type": "Base Image",
         "url": [
           "https://cs1.alfacart.com/product/1/1_A7650240002165_20210302082114673_base.jpg"
         ]
       },
+      "product_stock": 20,
+      "status": 0,
+      "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 1,
       "product_is_groceries": 1,
+      "id": 56289,
+      "price": 25000,
+      "product_special_price": 23500,
+      "product_special_price_to": "2023-04-09T00:00:00.000Z",
+      "product_special_price_from": "2023-04-15T00:00:00.000Z",
+      "product_alfagift_price": 24000,
       "product_visibility_pdp": 296,
-      "product_category": "Makanan",
       "product_sub_category": null,
-      "product_stock": 20
+      "sales_quantity": 82
     },
     {
       "product_id": 56290,
@@ -291,23 +298,24 @@
           "https://cs1.alfacart.com/product/1/1_A7650270002165_20210302083800436_base.jpg"
         ]
       },
-      "status": 1,
+      "product_stock": 20,
+      "status": 0,
       "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 1,
       "product_is_groceries": 1,
+      "id": 56290,
       "price": 25000,
       "product_special_price": 23500,
-      "product_special_price_to": "2023-04-09",
-      "product_special_price_from": "2023-04-15",
+      "product_special_price_to": "2023-04-09T00:00:00.000Z",
+      "product_special_price_from": "2023-04-15T00:00:00.000Z",
       "product_alfagift_price": 24000,
       "product_visibility_pdp": 296,
       "product_sub_category": null,
-      "id": 56290,
-      "product_stock": 20
+      "sales_quantity": 70
     },
     {
-      "product_id": "56291",
+      "product_id": 56291,
       "product_sku": "A06790303627",
       "product_name": "SARI KUE by SARI ROTI Dorayaki Cheese Hokkaido 50 g",
       "product_desc": "Sari Kue Dorayaki Cheese 55 g merupakan merupakan kue khas Jepang yang teksturnya mirip dengan pancake. Dibuat dari bahan-bahan pilihan berkualitas sehingga menghasilkan kue yang memiliki tekstur yang lembut disetiap gigitannya. Dilengkapi dengan isian krim keju premium, kue semakin nikmat disantap. Kue Dorayaki ini cocok dijadikan sebagai camilan santai saat kumpul bersama keluarga, sebagai bekal di perjalanan hingga pengganjal perut saat lapar.",
@@ -318,23 +326,23 @@
           "https://cs1.alfacart.com/product/1/1_A7908540002167_20230220150806608_base.jpg"
         ]
       },
+      "product_stock": 20,
       "status": 1,
       "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 0,
       "product_is_groceries": 0,
+      "id": 56291,
       "price": 7600,
       "product_special_price": 7600,
-      "product_special_price_to": "2023-04-17",
-      "product_special_price_from": "2023-04-15",
+      "product_special_price_to": "2023-04-17T00:00:00.000Z",
+      "product_special_price_from": "2023-04-15T00:00:00.000Z",
       "product_alfagift_price": 7800,
       "product_visibility_pdp": 296,
       "product_sub_category": null,
-      "id": 56291,
-      "product_stock": 20
+      "sales_quantity": 65
     },
     {
-      "id": 56292,
       "product_id": 829189898,
       "product_sku": "A89829CB",
       "product_name": "FRUIT TEA Minuman Teh Blackcurrant 350 ml",
@@ -346,25 +354,27 @@
           "https://cs1.alfacart.com/product/1/1_A12790040881_20200805091834214_base.jpg"
         ]
       },
+      "product_stock": 20,
       "status": 1,
       "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 1,
       "product_is_groceries": 1,
-      "price": 3900,
+      "id": 56292,
+      "price": 3850,
       "product_special_price": 3900,
-      "product_special_price_to": "2023-03-17",
-      "product_special_price_from": "2023-03-12",
+      "product_special_price_to": "2023-03-17T00:00:00.000Z",
+      "product_special_price_from": "2023-03-12T00:00:00.000Z",
       "product_alfagift_price": 4000,
       "product_visibility_pdp": 296,
       "product_sub_category": null,
-      "product_stock": 20
+      "sales_quantity": 40
     },
     {
       "product_id": 218128909,
       "product_sku": "A28299BT",
       "product_name": "Hydro Coco Minuman Air Kelapa Original 300 ml",
-      "product_desc": "Hydro Coco Minuman Air Kelapa Original 250 ml adalah minuman isotonik alami dari Kalbe yang berbeda dari minuman isotonik lainnya. Sesuai dengan namanya, minuman Hydro Coco berasal dari air kelapa alami yang mengandung ion alami sehingga berbeda dengan minuman isotonik yang menggunakan ion sintetik. Air kelapa asli ini memiliki kandungan karbohidrat dan elektrolit seperti yang ada dalam cairan tubuh manusia. Kelebihan ini membuatnya dapat menggantikan ion tubuh yang hilang dengan lebih sempurna karena mudah diserap oleh tubuh kita. Oleh sebab itu, Hydro Coco adalah minuman sehat alami yang baik dan aman dikonsumsi.\n\nManfaat air kelapa asli ada dalam sebuah Hydro Coco Original 250ml adalah kandungan Vitamin C, Vitamin B3, Vitamin B5, dan Vitamin B6nya yang baik untuk kesehatan Anda. Selain itu, kandungan asam aminonya dapat menjadi sumber energi yang bisa mempercepat pemulihan otot setelah melakukan aktivitas seperti berolahraga. Kemasannya yang berbentuk tetrapack 250ml dan terjamin higienis, akan membuat Anda merasa praktis dan memilihnya sebagai minuman isotonik pilihan.",
+      "product_desc": "Hydro Coco Minuman Air Kelapa Original 250 ml adalah minuman isotonik alami dari Kalbe yang berbeda dari minuman isotonik lainnya. Sesuai dengan namanya, minuman Hydro Coco berasal dari air kelapa alami yang mengandung ion alami sehingga berbeda dengan minuman isotonik yang menggunakan ion sintetik. Air kelapa asli ini memiliki kandungan karbohidrat dan elektrolit seperti yang ada dalam cairan tubuh manusia. Kelebihan ini membuatnya dapat menggantikan ion tubuh yang hilang dengan lebih sempurna karena mudah diserap oleh tubuh kita. Oleh sebab itu, Hydro Coco adalah minuman sehat alami yang baik dan aman dikonsumsi.\n\nManfaat air kelapa asli ada dalam sebuah Hydro Coco Original 250ml adalah kandungan Vitamin C, Vitamin B3, Vitamin B5, dan Vitamin B6nya yang baik untuk kesehatan Anda. Selain itu, kandungan asam aminonya dapat menjadi sumber energi yang bisa mempercepat pemulihan otot setelah melakukan aktivitas seperti berolahraga.",
       "product_category": "Minuman",
       "product_images": {
         "type": "Base Image",
@@ -372,7 +382,8 @@
           "https://cs1.alfacart.com/product/1/1_A12890003851_20200504142349370_base.jpg"
         ]
       },
-      "status": 0,
+      "product_stock": 20,
+      "status": 1,
       "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 0,
@@ -380,12 +391,12 @@
       "id": 56293,
       "price": 6000,
       "product_special_price": 6000,
-      "product_special_price_to": "2023-03-15",
-      "product_special_price_from": "2023-03-12",
+      "product_special_price_to": "2023-03-15T00:00:00.000Z",
+      "product_special_price_from": "2023-03-12T00:00:00.000Z",
       "product_alfagift_price": 6500,
       "product_visibility_pdp": 296,
       "product_sub_category": null,
-      "product_stock": 20
+      "sales_quantity": 18
     },
     {
       "product_id": 8889888,
@@ -399,20 +410,21 @@
           "https://c.alfagift.id/product/1/1_A10040005372_20220127151331050_base.jpg"
         ]
       },
+      "product_stock": 30,
       "status": 1,
       "is_alfa_product": 1,
       "alfagift_platform": true,
       "product_pickup_availability": 1,
       "product_is_groceries": 1,
       "id": 56294,
-      "product_stock": 25,
       "price": 7500,
-      "product_special_price": null,
-      "product_special_price_to": "",
-      "product_special_price_from": "",
+      "product_special_price": 7000,
+      "product_special_price_to": "2023-03-18T00:00:00.000Z",
+      "product_special_price_from": "2023-03-17T00:00:00.000Z",
       "product_alfagift_price": 8000,
       "product_visibility_pdp": 296,
-      "product_sub_category": null
+      "product_sub_category": null,
+      "sales_quantity": 20
     },
     {
       "product_id": 2992920,
@@ -441,7 +453,248 @@
       "product_special_price_from": "",
       "product_alfagift_price": 20000,
       "product_visibility_pdp": 296,
-      "product_sub_category": null
+      "product_sub_category": null,
+      "sales_quantity": 45
+    },
+    {
+      "id": 56296,
+      "product_id": 18991882,
+      "product_sku": "A90389BTR",
+      "product_name": "Glico Wings Ice Cream Haku Tokyo Cheese Delight 110 ml",
+      "product_desc": "Glico Wings Ice Cream Haku Tokyo Cheese Delight 110 ml merupakan es krim cone dengan rasa keju dan vanila. Berbeda dengan es krim lainnya, Tokyo Cheese Delight menawarkan cita rasa es krim yang manis sekaligus gurih. Cocok untuk Anda para pencinta keju. Dilengkapi dengan wafer cone rasa keju yang gurih dan crunchy. Sangat nikmat untuk dinikmati diwaktu senggang Anda bersama keluarga ataupun kerabat.",
+      "product_category": "Makanan",
+      "product_images": {
+        "type": "Base Image",
+        "url": [
+          "https://cs1.alfacart.com/product/1/1_A7906560002167_20230215151809681_base.jpg",
+          "https://cs1.alfacart.com/product/1/1_A7906560002167_20230215151812670_base.jpg",
+          "https://cs1.alfacart.com/product/1/1_A7906560002167_20230215151830802_base.jpg"
+        ]
+      },
+      "status": 1,
+      "product_stock": 200,
+      "is_alfa_product": 1,
+      "alfagift_platform": true,
+      "product_pickup_availability": 0,
+      "product_is_groceries": 0,
+      "price": 9000,
+      "product_special_price": null,
+      "product_special_price_to": "",
+      "product_special_price_from": "",
+      "product_alfagift_price": 9500,
+      "product_visibility_pdp": 296,
+      "product_sub_category": null,
+      "sales_quantity": 78
+    },
+    {
+      "id": 56297,
+      "product_id": 28828282,
+      "product_sku": "A995950BV",
+      "product_name": "KRATINGDAENG Energy Drink Botol 150 ml",
+      "product_desc": "sdjkdjksjkds",
+      "product_category": "Makanan",
+      "product_images": {
+        "type": "Base Image",
+        "url": [
+          "https://cs1.alfacart.com/product/1/1_A12630003501_20210708151453027_base.jpg"
+        ]
+      },
+      "status": 1,
+      "product_stock": 20,
+      "is_alfa_product": 1,
+      "alfagift_platform": true,
+      "product_pickup_availability": 0,
+      "product_is_groceries": 0,
+      "price": 7100,
+      "product_special_price": 7500,
+      "product_special_price_to": "2023-03-18T00:00:00.000Z",
+      "product_special_price_from": "2023-03-17T00:00:00.000Z",
+      "product_alfagift_price": 8000,
+      "product_visibility_pdp": 296,
+      "product_sub_category": null,
+      "sales_quantity": 0
+    }
+  ],
+  "brands": [
+    {
+      "id": 1,
+      "brandid": 11588,
+      "brand_name": "BANGO"
+    },
+    {
+      "id": 2,
+      "brandid": 10474,
+      "brand_name": "OREO"
+    },
+    {
+      "id": 11191,
+      "brandid": 11191,
+      "brand_name": "Swallow Naphthalene"
+    },
+    {
+      "id": 3,
+      "brandid": 10476,
+      "brand_name": "rider"
+    },
+    {
+      "id": 4,
+      "brandid": 10478,
+      "brand_name": "SARIAYU"
+    },
+    {
+      "id": 5,
+      "brandid": 10479,
+      "brand_name": "SGM"
+    },
+    {
+      "id": 6,
+      "brandid": 10480,
+      "brand_name": "Vaseline"
+    },
+    {
+      "id": 8,
+      "brandid": 10483,
+      "brand_name": "hemaviton"
+    },
+    {
+      "id": 9,
+      "brandid": 10484,
+      "brand_name": "Herborist"
+    },
+    {
+      "id": 10,
+      "brandid": 10746,
+      "brand_name": "Nestle"
+    },
+    {
+      "id": 11,
+      "brandid": 10747,
+      "brand_name": "Ovaltine"
+    },
+    {
+      "id": 12,
+      "brandid": 10748,
+      "brand_name": "KitKat"
+    },
+    {
+      "id": 13,
+      "brandid": 10749,
+      "brand_name": "Naraya"
+    },
+    {
+      "id": 14,
+      "brandid": 10751,
+      "brand_name": "Ovomaltine"
+    },
+    {
+      "id": 15,
+      "brandid": 10752,
+      "brand_name": "Cadbury"
+    },
+    {
+      "id": 16,
+      "brandid": 10756,
+      "brand_name": "Richeese"
+    },
+    {
+      "id": 17,
+      "brandid": 11086,
+      "brand_name": "MamyPoko"
+    },
+    {
+      "id": 18,
+      "brandid": 11089,
+      "brand_name": "Dancow"
+    }
+  ],
+  "officialStores": [
+    {
+      "id": 1,
+      "name": "ALFAMART",
+      "image": "https://storage.googleapis.com/alfagift-static-asset/migrasibo/bo/product/ama/promo/brand/pm_offstore_230309_tLyk.png",
+      "brands": [
+        {
+          "brandId": 10473,
+          "brandName": "MIRABELLA"
+        },
+        {
+          "brandId": 14720,
+          "brandName": "Dove"
+        }
+      ],
+      "totalFollowers": 125
+    },
+    {
+      "name": "Lawson",
+      "image": "https://kampungdesigner.com/wp-content/uploads/edd/2020/06/Logo-Lawson-by-kampungdesigner.jpg",
+      "brands": [
+        {
+          "brandId": 11588,
+          "brandName": "BANGO"
+        },
+        {
+          "brandId": 10474,
+          "brandName": "OREO"
+        },
+        {
+          "brandId": 11191,
+          "brandName": "Swallow Naphthalene"
+        },
+        {
+          "brandId": 10478,
+          "brandName": "SARIAYU"
+        },
+        {
+          "brandId": 11086,
+          "brandName": "MamyPoko"
+        },
+        {
+          "brandId": 10756,
+          "brandName": "Richeese"
+        },
+        {
+          "brandId": 10752,
+          "brandName": "Cadbury"
+        },
+        {
+          "brandId": 11089,
+          "brandName": "Dancow"
+        },
+        {
+          "brandId": 10751,
+          "brandName": "Ovomaltine"
+        },
+        {
+          "brandId": 10476,
+          "brandName": "rider"
+        }
+      ],
+      "totalFollowers": 75,
+      "id": 2
+    },
+    {
+      "name": "MAX COFFEE",
+      "image": "https://kuningancity.com/wp-content/uploads/Maxx-Coffee.jpg",
+      "brands": [
+        {
+          "brandId": 11588,
+          "brandName": "BANGO"
+        },
+        {
+          "brandId": 11191,
+          "brandName": "Swallow Naphthalene"
+        },
+        {
+          "brandId": 10747,
+          "brandName": "Ovaltine"
+        },
+        {
+          "brandId": 11089,
+          "brandName": "Dancow"
+        }
+      ],
+      "totalFollowers": 68,
+      "id": 3
     }
   ]
 }

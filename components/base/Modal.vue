@@ -25,7 +25,6 @@ const props = defineProps({
     default: "",
   },
 });
-const emit = defineEmits(["hideModal"]);
 </script>
 
 <style lang="scss" scoped></style>

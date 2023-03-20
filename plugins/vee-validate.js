@@ -27,3 +27,19 @@ extend("price", {
   },
   message: "This field must greater than 0",
 });
+
+extend("maxlength", {
+  params: ["max"],
+  validate(value, { max }) {
+    return value.length <= max;
+  },
+  message: "This field must less than {max} character",
+});
+
+extend("comparePrice", {
+  params: ["price"],
+  validate(value, { price }) {
+    return parseInt(value.replace(".", "")) <= parseInt(price.replace(".", ""));
+  },
+  message: "Special Price must be less than or equals to Price",
+});

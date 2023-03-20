@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getCookie, setCookie } from "../utils/cookies";
 
 export const API_URL = "http://localhost:3200";
 export const API_AUTH_URL = "http://localhost:3200/660";
@@ -15,7 +16,8 @@ export const state = () => ({
   data: localStorage.getItem("data")
     ? JSON.parse(localStorage.getItem("data"))
     : null,
-  accessToken: getCookie("accessToken") || null,
+  accessToken:
+    getCookie("accessToken") !== "" ? getCookie("accessToken") : null,
   err: {
     fName: "",
     lName: "",
@@ -95,15 +97,8 @@ export const mutations = {
   },
   SET_ACCESSTOKEN(state, value) {
     state.accessToken = value;
-    localStorage.setItem("accessToken", value);
-    var currentDate = new Date();
-
-    // add one hour to the current date
-    var datePlusOneHour = new Date(currentDate.getTime() + 1 * 60 * 60 * 1000);
-
-    // format the date as a string
-    var formattedDate = datePlusOneHour.toISOString();
-    document.cookie = `accessToken=${value}; expires=${formattedDate}`;
+    // localStorage.setItem("accessToken", value);
+    setCookie("accessToken", value, 30);
   },
   RESET_INPUT(state, value) {
     state.err = {
@@ -162,8 +157,10 @@ export const actions = {
       commit("SET_ISLOADING", true);
       const res = await axiosInstance.$get(API_AUTH_URL + "/users");
       commit("SET_USER", res);
+      return true;
     } catch (err) {
       console.log(err);
+      return false;
     } finally {
       commit("SET_ISLOADING", false);
     }
@@ -226,19 +223,3 @@ export const actions = {
       "accessToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   },
 };
-
-function getCookie(cname) {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(";");
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == " ") {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}

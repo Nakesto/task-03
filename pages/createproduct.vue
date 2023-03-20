@@ -106,7 +106,7 @@
                 class="swal-button swal-button--confirm btn btn-success"
                 @click="onSubmit"
               >
-                Yes, delete it!
+                Yes, create it!
               </button>
             </div>
           </b-overlay>
@@ -121,7 +121,48 @@
         </div>
       </template>
     </Modal>
-    <!-- <Alert v-if="isError" :msg="msg.error" variant="danger" /> -->
+    <Modal
+      v-if="isModal"
+      :title="isSuccess ? 'Create Product Success' : 'Create product Failed'"
+      :msg="
+        isSuccess ? 'Click ok to continue' : 'Error when update the products'
+      "
+    >
+      <template #icon>
+        <div v-if="isSuccess" class="swal-icon swal-icon--success">
+          <span
+            class="swal-icon--success__line swal-icon--success__line--long"
+          ></span>
+          <span
+            class="swal-icon--success__line swal-icon--success__line--tip"
+          ></span>
+
+          <div class="swal-icon--success__ring"></div>
+          <div class="swal-icon--success__hide-corners"></div>
+        </div>
+        <div v-else class="swal-icon swal-icon--error">
+          <div class="swal-icon--error__x-mark">
+            <span
+              class="swal-icon--error__line swal-icon--error__line--left"
+            ></span>
+            <span
+              class="swal-icon--error__line swal-icon--error__line--right"
+            ></span>
+          </div>
+        </div>
+      </template>
+      <template #footer>
+        <div class="swal-button-container">
+          <button
+            class="swal-button swal-button--confirm btn btn-black fw-bold"
+            style="cursor: pointer"
+            @click="hideModal"
+          >
+            {{ isSuccess ? "OK" : "Close" }}
+          </button>
+        </div>
+      </template>
+    </Modal>
   </div>
 </template>
 <script>
@@ -134,6 +175,7 @@ export default {
       },
     ],
   },
+  auth: true,
 };
 </script>
 <script setup>
@@ -152,6 +194,8 @@ const isLoading = computed(() => $store.getters["products/getIsLoading"]);
 const indicator = ref(null);
 const activeTab = ref(0);
 const isCreate = ref(false);
+const isModal = ref(false);
+const isSuccess = ref(false);
 const observe = ref(null);
 const inWidth = ref(0);
 const tabs = computed(() => {
@@ -227,13 +271,25 @@ const onSubmit = async () => {
       product_sub_category: null,
       product_stock: parseInt(inputDetail.value.product_stock),
       product_id: parseInt(inputDetail.value.product_id),
+      sales_quantity: 0,
     },
   });
 
   if (completed) {
-    router.push({ name: "products" });
+    isSuccess.value = true;
   } else {
+    isSuccess.value = false;
   }
+  isCreate.value = false;
+  isModal.value = true;
+};
+
+const hideModal = () => {
+  if (isSuccess.value) {
+    router.push({ name: "products" });
+  }
+
+  isModal.value = false;
 };
 
 onMounted(() => {

@@ -13,6 +13,7 @@ const child = () => interopDefault(import("~/pages/child.vue"));
 const detail = () => interopDefault(import("~/pages/detail.vue"));
 const update = () => interopDefault(import("~/pages/updateproduct.vue"));
 const error = () => interopDefault(import("~/pages/error.vue"));
+const store = () => interopDefault(import("~/pages/officialstore.vue"));
 
 Vue.use(Router);
 export function createRouter() {
@@ -85,6 +86,11 @@ export function createRouter() {
                 },
               },
             ],
+          },
+          {
+            path: "store",
+            component: store,
+            name: "store",
           },
         ],
       },

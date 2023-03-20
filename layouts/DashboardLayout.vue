@@ -414,7 +414,7 @@
             </div>
             <ul class="nav nav-primary">
               <li class="nav-item">
-                <NuxtLink to="/users" class="collapsed" aria-expanded="false">
+                <NuxtLink to="/" class="collapsed" aria-expanded="false">
                   <i class="fas fa-home"></i>
                   <p>Home</p>
                 </NuxtLink>
@@ -433,6 +433,12 @@
                 >
                   <i class="fab fa-wpforms"></i>
                   <p>Products</p>
+                </NuxtLink>
+              </li>
+              <li class="nav-item">
+                <NuxtLink to="/store" class="collapsed" aria-expanded="false">
+                  <i class="fas fa-shop"></i>
+                  <p>Official Store</p>
                 </NuxtLink>
               </li>
             </ul>
@@ -1060,10 +1066,12 @@ import { computed, getCurrentInstance } from "vue";
 
 const $root = getCurrentInstance().proxy.$root;
 const $store = $root.$store;
+const $auth = $root.$auth;
 const data = computed(() => $store.getters["regis/getData"] || {});
-const logout = () => {
+const logout = async () => {
+  await $auth.logout();
   $store.dispatch("regis/logout");
-  location.reload();
+  // location.reload();
 };
 </script>
 

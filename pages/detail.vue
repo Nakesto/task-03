@@ -21,10 +21,31 @@
                   <div class="row">
                     <div class="col-4 p-3">
                       <img
+                        v-if="product.product_images.url.length === 1"
                         :src="product.product_images.url[0]"
                         :alt="product.product_name"
                         style="width: 100%; height: 100%"
                       />
+                      <b-carousel
+                        v-else
+                        id="carousel-1"
+                        :interval="4000"
+                        controls
+                        style="text-shadow: 1px 1px 2px #333"
+                      >
+                        <!-- Text slides with image -->
+                        <b-carousel-slide
+                          v-for="(val, index) in product.product_images.url"
+                          :img-src="val"
+                          :key="index"
+                          style="
+                            object-fit: cover;
+                            height: 200px;
+                            width: 200px;
+                            object-position: center;
+                          "
+                        ></b-carousel-slide>
+                      </b-carousel>
                     </div>
                     <div class="col-8 py-3 px-5">
                       <p class="fw-bold mb-1">{{ product.product_sku }}</p>
@@ -47,6 +68,12 @@
                               : product.product_special_price | toRp
                           }}
                         </h2>
+                        <p
+                          class="text-muted fw-bold mb-2"
+                          style="font-size: 12px"
+                        >
+                          Stock: {{ product.product_stock }}
+                        </p>
                       </div>
                       <div class="d-flex justify-content-between">
                         <div>
@@ -73,7 +100,7 @@
                         product.product_special_price_from !== '' &&
                         product.product_special_price_from !== null
                       "
-                      class="text-muted fw-bold col-12 mb-1"
+                      class="text-muted fw-bold col-12 mb-1 mt-4"
                     >
                       Promo Special Price from :
                       <span>{{ product.product_special_price_from }}</span>
@@ -172,6 +199,7 @@ export default {
       },
     ],
   },
+  auth: true,
 };
 </script>
 <script setup>
@@ -196,4 +224,12 @@ const product = computed(() => {
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style>
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  background-color: rgba(59, 58, 58, 0.6) !important;
+  border-radius: 10px;
+  width: 23px;
+  height: 23px;
+}
+</style>

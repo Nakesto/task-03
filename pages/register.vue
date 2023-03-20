@@ -27,6 +27,7 @@
                   :penuh="item.penuh ? true : false"
                   :inputClass="err[item.name] !== '' ? 'is-invalid' : ''"
                   :active="activeInput"
+                  :focus="item.focus ? true : false"
                   @onFocus="onFocus"
                   @onBlur="onBlur"
                   :groupClass="err[item.name] !== '' ? 'has-error' : ''"
@@ -95,9 +96,16 @@
       </template>
       <template #content>
         <ul class="list-group list-group-bordered">
-          <li class="list-group-item">FullName: {{ fName + " " + lName }}</li>
-          <li class="list-group-item">Email: {{ email }}</li>
-          <li class="list-group-item">Phone: {{ phone }}</li>
+          <li class="list-group-item">
+            <span class="fw-bold mr-2">Full Name:</span>
+            {{ fName + " " + lName }}
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold mr-2">Email:</span> {{ email }}
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold mr-2">Phone:</span> {{ phone }}
+          </li>
         </ul>
       </template>
       <template #footer>
@@ -124,6 +132,7 @@ export default {
       },
     ],
   },
+  auth: "guest",
 };
 </script>
 <script setup>
@@ -228,6 +237,7 @@ const items = ref([
     label: "First Name",
     name: "fName",
     error: err,
+    focus: true,
   },
   {
     ipt: lName,
