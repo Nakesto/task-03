@@ -13,7 +13,7 @@
             <i class="flaticon-right-arrow"></i>
           </li>
           <li class="nav-item">
-            <NuxtLink to="/store">Banners</NuxtLink>
+            <NuxtLink to="/banners">Banners</NuxtLink>
           </li>
         </ul>
       </div>
@@ -257,7 +257,7 @@ const onCreate = async (val) => {
   });
 
   if (completed) {
-    msg.success = "Official Store has been created";
+    msg.success = "Banner has been created";
     setTimeout(() => {
       isSuccess.value = true;
     }, 1000);
@@ -266,7 +266,7 @@ const onCreate = async (val) => {
       isSuccess.value = false;
     }, 3000);
   } else {
-    msg.error = "Official Store failed to create";
+    msg.error = "Banner failed to create";
     setTimeout(() => {
       isError.value = true;
     }, 1000);
@@ -289,7 +289,7 @@ const onUpdate = async (val) => {
   });
 
   if (completed) {
-    msg.success = "Official Store has been updated";
+    msg.success = "Banner has been updated";
     setTimeout(() => {
       isSuccess.value = true;
     }, 1000);
@@ -298,7 +298,7 @@ const onUpdate = async (val) => {
       isSuccess.value = false;
     }, 3000);
   } else {
-    msg.error = "Official Store failed to updated";
+    msg.error = "Banner failed to updated";
     setTimeout(() => {
       isError.value = true;
     }, 1000);
@@ -320,7 +320,7 @@ const onDelete = async () => {
   });
 
   if (completed) {
-    msg.success = "Official Store has been deleted";
+    msg.success = "Banner has been deleted";
     setTimeout(() => {
       isSuccess.value = true;
     }, 1000);
@@ -329,7 +329,7 @@ const onDelete = async () => {
       isSuccess.value = false;
     }, 3000);
   } else {
-    msg.error = "Official Store failed to deleted";
+    msg.error = "Banner failed to deleted";
     setTimeout(() => {
       isError.value = true;
     }, 1000);

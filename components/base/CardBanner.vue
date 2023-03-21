@@ -3,10 +3,15 @@
     <b-img :src="img" fluid aspect="16/9" class="card-img-top" />
     <div class="card-body">
       <h3 class="card-title fw-bold">{{ name }}</h3>
-      <p class="card-text text-muted">
+      <p class="card-text text-muted mt-2 fw-bold">
         <span class="fw-bold">Periode:</span>
-        {{ new Date(startDate).toLocaleDateString() }} -
-        {{ new Date(endDate).toLocaleDateString() }}
+        <span style="color: black" class="fw-bold">
+          {{ startDate | convertDate }}
+        </span>
+        sampai
+        <span style="color: black" class="fw-bold">
+          {{ startDate | convertDate }}
+        </span>
       </p>
       <div class="d-flex justify-content-between">
         <div style="flex: 1"></div>

@@ -13,3 +13,8 @@ Vue.filter("toRp", function (number) {
     return "";
   }
 });
+
+Vue.filter("convertDate", function (value) {
+  const date = new Date(value);
+  return `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`;
+});

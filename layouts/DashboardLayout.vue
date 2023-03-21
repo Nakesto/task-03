@@ -413,38 +413,59 @@
               </div>
             </div>
             <ul class="nav nav-primary">
-              <li class="nav-item">
-                <NuxtLink to="/" class="collapsed" aria-expanded="false">
-                  <i class="fas fa-home"></i>
-                  <p>Home</p>
+              <li class="fw-bold" style="font-size: 18px">
+                <NuxtLink
+                  to="/"
+                  aria-expanded="false"
+                  class="d-flex align-items-center pl-4 py-2"
+                  style="text-decoration: none"
+                >
+                  <i class="fas fa-home" style="width: 20px"></i>
+                  <p class="ml-3 mb-0">Home</p>
                 </NuxtLink>
               </li>
-              <li class="nav-item">
-                <NuxtLink to="/users" class="collapsed" aria-expanded="false">
-                  <i class="fas fa-user-alt"></i>
-                  <p>User</p>
+              <li class="fw-bold" style="font-size: 18px">
+                <NuxtLink
+                  to="/users"
+                  aria-expanded="false"
+                  class="d-flex align-items-center pl-4 py-2"
+                  style="text-decoration: none"
+                >
+                  <i class="fas fa-user-alt" style="width: 20px"></i>
+                  <p class="ml-3 mb-0">User</p>
                 </NuxtLink>
               </li>
-              <li class="nav-item">
+              <li class="fw-bold" style="font-size: 18px">
                 <NuxtLink
                   to="/products"
-                  class="collapsed"
                   aria-expanded="false"
+                  class="d-flex align-items-center pl-4 py-2"
+                  style="text-decoration: none"
                 >
-                  <i class="fab fa-wpforms"></i>
-                  <p>Products</p>
+                  <i class="fab fa-wpforms" style="width: 20px"></i>
+                  <p class="ml-3 mb-0">Products</p>
                 </NuxtLink>
               </li>
-              <li class="nav-item">
-                <NuxtLink to="/store" class="collapsed" aria-expanded="false">
-                  <i class="fas fa-shop"></i>
-                  <p>Official Store</p>
+              <li class="fw-bold" style="font-size: 18px">
+                <NuxtLink
+                  to="/store"
+                  aria-expanded="false"
+                  class="d-flex align-items-center pl-4 py-2"
+                  style="text-decoration: none"
+                >
+                  <i class="fas fa-shop" style="width: 20px"></i>
+                  <p class="ml-3 mb-0">Official Store</p>
                 </NuxtLink>
               </li>
-              <li class="nav-item">
-                <NuxtLink to="/banners" class="collapsed" aria-expanded="false">
-                  <i class="fas fa-money-check"></i>
-                  <p>Banners</p>
+              <li class="pl-4 py-2 fw-bold" style="font-size: 18px">
+                <NuxtLink
+                  to="/banners"
+                  aria-expanded="false"
+                  class="d-flex align-items-center"
+                  style="text-decoration: none"
+                >
+                  <i class="fas fa-money-check" style="width: 20px"></i>
+                  <p class="ml-3 mb-0">Banners</p>
                 </NuxtLink>
               </li>
             </ul>
@@ -1081,4 +1102,24 @@ const logout = async () => {
 };
 </script>
 
-<style></style>
+<style scoped>
+.submenu {
+  background-color: white !important;
+}
+
+.nuxt-link-exact-active {
+  color: #1a2034 !important;
+}
+
+a {
+  color: #8a929a;
+}
+
+a:hover {
+  color: #1a2034;
+}
+
+li:hover {
+  background-color: rgba(172, 172, 172, 0.1);
+}
+</style>
