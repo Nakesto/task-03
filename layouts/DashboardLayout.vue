@@ -441,6 +441,12 @@
                   <p>Official Store</p>
                 </NuxtLink>
               </li>
+              <li class="nav-item">
+                <NuxtLink to="/banners" class="collapsed" aria-expanded="false">
+                  <i class="fas fa-money-check"></i>
+                  <p>Banners</p>
+                </NuxtLink>
+              </li>
             </ul>
           </div>
         </div>

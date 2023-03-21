@@ -86,7 +86,7 @@ const props = defineProps({
     required: true,
   },
 });
-const emit = defineEmits(["update", "detail", "delete"]);
+const emit = defineEmits(["update", "delete"]);
 const variant = ref(["badge-info", "badge-success", "badge-primary"]);
 </script>
 

@@ -695,6 +695,66 @@
       ],
       "totalFollowers": 68,
       "id": 3
+    },
+    {
+      "name": "Nestle",
+      "image": "https://1000logos.net/wp-content/uploads/2017/03/Nestle-Logo-1984.jpg",
+      "brands": [
+        {
+          "brandId": 10474,
+          "brandName": "OREO"
+        },
+        {
+          "brandId": 11191,
+          "brandName": "Swallow Naphthalene"
+        }
+      ],
+      "totalFollowers": 0,
+      "id": 4
+    }
+  ],
+  "banners": [
+    {
+      "id": 1,
+      "bannerName": "Promo Lebaran",
+      "bannerImageFileName": "https://alfagift.id/_ipx/f_webp,q_80/https://cdn.takdes.net/media/bo/product/ama/banner/pm_banner_230321_if4F.jpg",
+      "startDate": "2023-03-21",
+      "endDate": "2023-03-23"
+    },
+    {
+      "id": 2,
+      "bannerName": "JSM",
+      "bannerImageFileName": "https://alfagift.id/_ipx/f_webp,q_80/https://cdn.takdes.net/media/bo/product/ama/banner/pm_banner_230317_8nLb.png",
+      "startDate": "2023-03-23T00:00:00.000Z",
+      "endDate": "2023-03-25T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "bannerName": "Star Festival",
+      "bannerImageFileName": "https://alfagift.id/_ipx/f_webp,q_80/https://cdn.takdes.net/media/bo/product/ama/banner/pm_banner_230320_GhX6.png",
+      "startDate": "2023-03-27T00:00:00.000Z",
+      "endDate": "2023-03-29T00:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "bannerName": "Gopay potongan 2500",
+      "bannerImageFileName": "https://alfagift.id/_ipx/f_webp,q_80/https://cdn.takdes.net/media/bo/product/ama/banner/pm_banner_230315_K0iV.png",
+      "startDate": "2023-04-01",
+      "endDate": "2023-04-05"
+    },
+    {
+      "id": 5,
+      "bannerName": "Eservice getstamp",
+      "bannerImageFileName": "https://alfagift.id/_ipx/f_webp,q_80/https://cdn.takdes.net/media/bo/product/ama/banner/pm_banner_230317_Mdb8.png",
+      "startDate": "2023-04-06T00:00:00.000Z",
+      "endDate": "2023-04-07T00:00:00.000Z"
+    },
+    {
+      "bannerName": "Walls debuts",
+      "bannerImageFileName": "https://alfagift.id/_ipx/f_webp,q_80/https://cdn.takdes.net/media/bo/product/ama/banner/pm_banner_230318_wiZo.jpg",
+      "startDate": "2023-03-23",
+      "endDate": "2023-03-29",
+      "id": 6
     }
   ]
 }

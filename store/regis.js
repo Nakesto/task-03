@@ -1,8 +1,8 @@
 import axios from "axios";
 import { getCookie, setCookie } from "../utils/cookies";
 
-export const API_URL = "http://localhost:3200";
-export const API_AUTH_URL = "http://localhost:3200/660";
+export const API_URL = process.env.API_URL;
+export const API_AUTH_URL = process.env.API_AUTH_URL;
 
 export const state = () => ({
   input: {

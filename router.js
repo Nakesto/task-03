@@ -14,6 +14,7 @@ const detail = () => interopDefault(import("~/pages/detail.vue"));
 const update = () => interopDefault(import("~/pages/updateproduct.vue"));
 const error = () => interopDefault(import("~/pages/error.vue"));
 const store = () => interopDefault(import("~/pages/officialstore.vue"));
+const banners = () => interopDefault(import("~/pages/banners.vue"));
 
 Vue.use(Router);
 export function createRouter() {
@@ -91,6 +92,11 @@ export function createRouter() {
             path: "store",
             component: store,
             name: "store",
+          },
+          {
+            path: "banners",
+            component: banners,
+            name: "banners",
           },
         ],
       },

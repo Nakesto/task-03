@@ -129,6 +129,7 @@ export default {
     "@nuxtjs/router",
     "@nuxtjs/axios",
     "@nuxtjs/auth-next",
+    "@nuxtjs/dotenv",
   ],
 
   router: {

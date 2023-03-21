@@ -2,7 +2,7 @@
   <div class="container container-full">
     <div class="page-navs bg-white">
       <div class="page-header py-3">
-        <h4 class="page-title">Official Stores</h4>
+        <h4 class="page-title">Banners</h4>
         <ul class="breadcrumbs">
           <li class="nav-home">
             <a href="#">
@@ -13,7 +13,7 @@
             <i class="flaticon-right-arrow"></i>
           </li>
           <li class="nav-item">
-            <NuxtLink to="/store">Official Stores</NuxtLink>
+            <NuxtLink to="/store">Banners</NuxtLink>
           </li>
         </ul>
       </div>
@@ -31,7 +31,7 @@
             class="form-control"
             aria-label="Text input with dropdown button"
             v-model="search"
-            placeholder="Search Official Store"
+            placeholder="Search Banners"
             v-auto-focus
           />
         </div>
@@ -39,7 +39,7 @@
           class="mt-5 mt-sm-0 col-12 col-sm-4 col-md-6 col-xl-8 d-flex justify-content-end"
         >
           <span @click="onHandleCreate" class="btn btn-black text-white"
-            >Create Official Store</span
+            >Create Banner</span
           >
         </div>
       </div>
@@ -50,25 +50,22 @@
             v-for="val in paginatedItems"
             :key="val.id"
           >
-            <CardStore
-              :name="val.name"
-              :followers="val.totalFollowers"
-              :image="val.image"
-              :brands="val.brands"
+            <CardBanner
               :id="val.id"
-              :key="val.id"
+              :img="val.bannerImageFileName"
+              :name="val.bannerName"
+              :startDate="val.startDate"
+              :endDate="val.endDate"
               @update="onHandleUpdate"
               @delete="onHandleDelete"
-              @detail="onHandleDetail"
             />
           </div>
         </fragment>
         <fragment v-else>
           <div v-for="val in [0, 1, 2, 3]" :key="val" class="col-12 col-md-6">
-            <SkeletonStore />
+            <SkeletonBanner />
           </div>
         </fragment>
-
         <div
           class="d-flex flex-column align-items-center justify-content-center col-12"
           v-if="!isLoading && paginatedItems.length === 0 && search === ''"
@@ -97,117 +94,78 @@
       <b-pagination
         v-if="!isLoading && paginatedItems.length > 0"
         v-model="currentPage"
-        :total-rows="stores.length"
+        :total-rows="banners.length"
         :per-page="perPage"
       />
     </div>
-    <div style="position: relative">
-      <Modal
-        title="Official Store"
-        :msg="
-          section.isDelete
-            ? 'Are you sure want to delete the official store?'
-            : ''
-        "
-        v-if="isModal"
-      >
-        <template #icon>
-          <div class="swal-icon swal-icon--error" v-if="section.isDelete">
-            <div class="swal-icon--error__x-mark">
-              <span
-                class="swal-icon--error__line swal-icon--error__line--left"
-              ></span>
-              <span
-                class="swal-icon--error__line swal-icon--error__line--right"
-              ></span>
-            </div>
+    <Modal
+      title="Banners"
+      :msg="section.isDelete ? 'Are you sure want to delete the banner?' : ''"
+      v-if="isModal"
+    >
+      <template #icon>
+        <div class="swal-icon swal-icon--error" v-if="section.isDelete">
+          <div class="swal-icon--error__x-mark">
+            <span
+              class="swal-icon--error__line swal-icon--error__line--left"
+            ></span>
+            <span
+              class="swal-icon--error__line swal-icon--error__line--right"
+            ></span>
           </div>
-        </template>
-        <template #content>
-          <FormStore
-            @closeModal="closeModal"
-            @onSubmit="onCreate"
-            type="Create"
-            :id="''"
-            v-if="section.isCreate"
-            @open="isOverlay = true"
-            @close="isOverlay = false"
-          />
-          <FormStore
-            @closeModal="closeModal"
-            @onSubmit="onUpdate"
-            type="Update"
-            :id="activeStore.id"
-            :imageVal="activeStore.image"
-            :brandVal="activeStore.brands"
-            :nameVal="activeStore.name"
-            v-if="section.isEdit"
-            @open="isOverlay = true"
-            @close="isOverlay = false"
-          />
-          <DetailStore
-            :imageVal="activeStore.image"
-            :brandVal="activeStore.brands"
-            :nameVal="activeStore.name"
-            :followers="activeStore.totalFollowers"
-            v-if="section.isDetail"
-          />
-          <div class="d-flex justify-content-center" v-if="section.isDelete">
-            <b-overlay
-              :show="isLoadingStore"
-              rounded
-              opacity="0.6"
-              spinner-small
-              spinner-variant="primary"
-              class="d-inline-block"
-            >
-              <div class="swal-button-container">
-                <button
-                  class="swal-button swal-button--confirm btn btn-success"
-                  @click="onDelete"
-                >
-                  Yes, delete it!
-                </button>
-              </div>
-            </b-overlay>
+        </div>
+      </template>
+      <template #content>
+        <FormBanner
+          v-if="section.isCreate"
+          @onSubmit="onCreate"
+          type="Create"
+          @closeModal="closeModal"
+        />
+        <FormBanner
+          v-if="section.isEdit"
+          @onSubmit="onUpdate"
+          :nameVal="activeBanner.bannerName"
+          :imageVal="activeBanner.bannerImageFileName"
+          :startDateVal="activeBanner.startDate"
+          :endDateVal="activeBanner.endDate"
+          type="Update"
+          @closeModal="closeModal"
+        />
+        <div class="d-flex justify-content-center" v-if="section.isDelete">
+          <b-overlay
+            :show="isLoadingBanner"
+            rounded
+            opacity="0.6"
+            spinner-small
+            spinner-variant="primary"
+            class="d-inline-block"
+          >
             <div class="swal-button-container">
               <button
-                class="swal-button swal-button--cancel btn btn-danger"
-                @click="closeModal"
+                class="swal-button swal-button--confirm btn btn-success"
+                @click="onDelete"
               >
-                Cancel
+                Yes, delete it!
               </button>
             </div>
+          </b-overlay>
+          <div class="swal-button-container">
+            <button
+              class="swal-button swal-button--cancel btn btn-danger"
+              @click="closeModal"
+            >
+              Cancel
+            </button>
           </div>
-        </template>
-        <template #footer>
-          <button
-            @click="closeModal"
-            class="btn btn-dark col-12 mt-4 fw-bold"
-            v-if="section.isDetail"
-          >
-            Close
-          </button>
-        </template>
-      </Modal>
-      <Alert v-if="isSuccess" :msg="msg.success" variant="success" />
-      <Alert v-if="isError" :msg="msg.error" variant="danger" />
-    </div>
+        </div>
+      </template>
+    </Modal>
+    <Alert v-if="isSuccess" :msg="msg.success" variant="success" />
+    <Alert v-if="isError" :msg="msg.error" variant="danger" />
   </div>
 </template>
-<script>
-export default {
-  head: {
-    script: [
-      {
-        src: "/assets/js/core/bootstrap.min.js",
-        body: true,
-      },
-    ],
-  },
-  auth: true,
-};
-</script>
+
 <script setup>
 import {
   computed,
@@ -217,58 +175,82 @@ import {
   ref,
   watch,
 } from "vue";
-import CardStore from "../components/base/CardStore.vue";
+import CardBanner from "../components/base/CardBanner.vue";
 import Modal from "../components/base/Modal.vue";
-import SkeletonStore from "../components/base/SkeletonStore.vue";
-import DetailStore from "../components/DetailStore.vue";
-import FormStore from "../components/FormStore.vue";
+import SkeletonBanner from "../components/base/SkeletonBanner.vue";
+import FormBanner from "../components/FormBanner.vue";
 import Alert from "../components/base/Alert.vue";
 
 const $root = getCurrentInstance().proxy.$root;
 const $store = $root.$store;
 const $axios = $root.$axios;
 const search = ref("");
-const isLoading = ref(true);
+const isLoading = ref(false);
 const isSuccess = ref(false);
 const isError = ref(false);
+const banners = computed(() => $store.getters["banners/getBanners"]);
+const isLoadingBanner = computed(() => $store.getters["banners/getIsLoading"]);
 const isModal = ref(false);
-const isOverlay = ref(false);
-const activeId = ref("");
-const activeStore = computed(() => {
-  if (typeof stores.value === "undefined") {
+const activeId = ref(0);
+const activeBanner = computed(() => {
+  if (typeof banners.value === "undefined") {
     return [];
   }
 
-  return stores.value.filter((val) => val.id === activeId.value)[0];
-});
-
-const section = reactive({
-  isCreate: false,
-  isEdit: false,
-  isDetail: false,
-  isDelete: false,
+  return banners.value.filter((val) => val.id === activeId.value)[0];
 });
 const msg = reactive({
   success: "",
   error: "",
 });
 const currentPage = ref(1);
-const perPage = ref(8);
+const perPage = ref(4);
 let searchTimeout;
 const paginatedItems = computed(() => {
   const start = (currentPage.value - 1) * perPage.value;
   const end = start + perPage.value;
+  if (typeof banners.value === "undefined") {
+    return [];
+  }
 
-  return stores.value.slice(start, end);
+  return banners.value.slice(start, end);
 });
-const stores = computed(() => $store.getters["official/getOfficialStore"]);
-const isLoadingStore = computed(() => $store.getters["official/getIsLoading"]);
+
+const section = reactive({
+  isCreate: false,
+  isEdit: false,
+  isDelete: false,
+});
+
 const closeModal = () => {
   isModal.value = false;
 };
 
+const onHandleCreate = () => {
+  section.isCreate = true;
+  section.isEdit = false;
+  section.isDelete = false;
+  isModal.value = true;
+};
+
+const onHandleUpdate = (id) => {
+  section.isEdit = true;
+  section.isDelete = false;
+  section.isCreate = false;
+  activeId.value = id;
+  isModal.value = true;
+};
+
+const onHandleDelete = (id) => {
+  section.isDelete = true;
+  section.isEdit = false;
+  section.isCreate = false;
+  activeId.value = id;
+  isModal.value = true;
+};
+
 const onCreate = async (val) => {
-  const completed = await $store.dispatch("official/createOfficialStore", {
+  const completed = await $store.dispatch("banners/createBanners", {
     axiosInstance: $axios,
     value: val,
   });
@@ -299,10 +281,10 @@ const onCreate = async (val) => {
 };
 
 const onUpdate = async (val) => {
-  const completed = await $store.dispatch("official/updateOfficialStore", {
+  const completed = await $store.dispatch("banners/updateBanners", {
     axiosInstance: $axios,
     value: val,
-    id: activeStore.value.id,
+    id: activeBanner.value.id,
   });
 
   if (completed) {
@@ -331,9 +313,9 @@ const onUpdate = async (val) => {
 };
 
 const onDelete = async () => {
-  const completed = await $store.dispatch("official/deleteOfficialStore", {
+  const completed = await $store.dispatch("banners/deleteBanners", {
     axiosInstance: $axios,
-    id: activeStore.value.id,
+    id: activeBanner.value.id,
   });
 
   if (completed) {
@@ -361,47 +343,12 @@ const onDelete = async () => {
   }, 600);
 };
 
-const onHandleCreate = () => {
-  section.isCreate = true;
-  section.isEdit = false;
-  section.isDetail = false;
-  section.isDelete = false;
-  isModal.value = true;
-};
-
-const onHandleUpdate = (id) => {
-  section.isEdit = true;
-  section.isDetail = false;
-  section.isDelete = false;
-  section.isCreate = false;
-  activeId.value = id;
-  isModal.value = true;
-};
-
-const onHandleDelete = (id) => {
-  section.isDelete = true;
-  section.isDetail = false;
-  section.isEdit = false;
-  section.isCreate = false;
-  activeId.value = id;
-  isModal.value = true;
-};
-
-const onHandleDetail = (id) => {
-  section.isDetail = true;
-  section.isDelete = false;
-  section.isEdit = false;
-  section.isCreate = false;
-  activeId.value = id;
-  isModal.value = true;
-};
-
 watch(search, (val) => {
   clearTimeout(searchTimeout);
   currentPage.value = 1;
   isLoading.value = true;
   searchTimeout = setTimeout(async () => {
-    const completed = await $store.dispatch("official/searchOfficialStore", {
+    const completed = await $store.dispatch("banners/searchOfficialStore", {
       axiosInstance: $axios,
       val: val,
     });
@@ -409,21 +356,19 @@ watch(search, (val) => {
   }, 1000);
 });
 
-onMounted(async () => {
-  try {
-    const res = await Promise.all([
-      $store.dispatch("official/fetchBrands", $axios),
-      $store.dispatch("official/fetchOfficialStore", $axios),
-    ]);
-    if (!res[0] || !res[1]) {
-      isError.value = true;
-    }
-  } catch (err) {
-    console.log(err);
+const fetchBanners = async () => {
+  isLoading.value = true;
+  const completed = await $store.dispatch("banners/fetchBanners", $axios);
+  if (completed) {
+    isError.value = false;
+  } else {
     isError.value = true;
-  } finally {
-    isLoading.value = false;
   }
+  isLoading.value = false;
+};
+
+onMounted(() => {
+  fetchBanners();
 });
 </script>
 
