@@ -1,6 +1,6 @@
 <template>
   <b-alert
-    class="my-3 mx-auto bawah"
+    class="my-3 mx-auto bawah fw-bold"
     :variant="variant"
     fade
     show

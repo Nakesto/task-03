@@ -8,7 +8,7 @@
       height="5px"
       class="mb-2"
     ></b-progress>
-    <b-form class="row px-2 px-md-4" @submit.prevent="submit">
+    <b-form class="row px-2 px-md-4" @submit.prevent="checking">
       <ValidationProvider
         class="col-12 p-0 m-0"
         rules="required"
@@ -252,6 +252,63 @@
         </div>
       </fragment>
     </b-form>
+    <Modal
+      styleModal="width: 80%"
+      title="Banners"
+      v-if="isChecking"
+      :msg="`Are you sure want to ${type} the banner?`"
+    >
+      <template #icon>
+        <div class="swal-icon swal-icon--success">
+          <span
+            class="swal-icon--success__line swal-icon--success__line--long"
+          ></span>
+          <span
+            class="swal-icon--success__line swal-icon--success__line--tip"
+          ></span>
+
+          <div class="swal-icon--success__ring"></div>
+          <div class="swal-icon--success__hide-corners"></div>
+        </div>
+      </template>
+      <template #content>
+        <b-progress
+          v-if="isLoading"
+          :value="progress"
+          variant="success"
+          animated
+          height="5px"
+          class="mb-2"
+        ></b-progress>
+        <div class="d-flex justify-content-center">
+          <b-overlay
+            :show="isLoading"
+            rounded
+            opacity="0.6"
+            spinner-small
+            spinner-variant="primary"
+            class="d-inline-block"
+          >
+            <div class="swal-button-container">
+              <button
+                class="swal-button swal-button--confirm btn btn-success"
+                @click="submit"
+              >
+                Yes, {{ type }} it!
+              </button>
+            </div>
+          </b-overlay>
+          <div class="swal-button-container">
+            <button
+              class="swal-button swal-button--cancel btn btn-danger"
+              @click="isChecking = false"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </template>
+    </Modal>
   </ValidationObserver>
 </template>
 
@@ -259,6 +316,7 @@
 import { computed, getCurrentInstance, onUnmounted, ref, watch } from "vue";
 import { ValidationProvider, ValidationObserver } from "vee-validate";
 import Editor from "./base/Editor.vue";
+import Modal from "./base/Modal.vue";
 
 const $root = getCurrentInstance().proxy.$root;
 const $store = $root.$store;
@@ -291,6 +349,7 @@ const isMagnifier = ref(false);
 const isBrand = ref(false);
 const emit = defineEmits(["closeModal"]);
 const search = ref("");
+const isChecking = ref(false);
 const activeInput = ref("name");
 const isLoadingImage = ref(false);
 const progress = computed(() => $store.getters["official/getProgress"]);
@@ -364,6 +423,10 @@ const onDelete = (id) => {
 
 const updateValue = (value) => {
   image.value = value;
+};
+
+const checking = () => {
+  isChecking.value = true;
 };
 
 const submit = () => {

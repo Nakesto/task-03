@@ -191,6 +191,7 @@ const isError = ref(false);
 const banners = computed(() => $store.getters["banners/getBanners"]);
 const isLoadingBanner = computed(() => $store.getters["banners/getIsLoading"]);
 const isModal = ref(false);
+const isChecking = ref(false);
 const activeId = ref(0);
 const activeBanner = computed(() => {
   if (typeof banners.value === "undefined") {
