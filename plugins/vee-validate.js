@@ -36,6 +36,14 @@ extend("maxlength", {
   message: "This field must less than {max} character",
 });
 
+extend("minlength", {
+  params: ["min"],
+  validate(value, { min }) {
+    return value.length > min;
+  },
+  message: "This field must more than {min} character",
+});
+
 extend("comparePrice", {
   params: ["price"],
   validate(value, { price }) {

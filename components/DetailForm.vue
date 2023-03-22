@@ -286,7 +286,7 @@
         </ValidationProvider>
         <ValidationProvider
           class="col-12"
-          rules="required|maxlength:1000"
+          rules="required|maxlength:1000|minlength:50"
           v-slot="{ errors }"
         >
           <div

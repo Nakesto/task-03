@@ -10,7 +10,7 @@
         </span>
         sampai
         <span style="color: black" class="fw-bold">
-          {{ startDate | convertDate }}
+          {{ endDate | convertDate }}
         </span>
       </p>
       <div class="d-flex justify-content-between">
